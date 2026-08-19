@@ -29,7 +29,8 @@
   .intro h2{font-family:'Sora',ui-sans-serif;font-weight:600;font-size:clamp(22px,4vw,28px);line-height:1.25;letter-spacing:-.5px;margin-bottom:20px}
   .intro p{font-size:18px;font-weight:600;color:var(--carbon-83);max-width:620px;margin:0 auto}
   form.checkin{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
-  input[type=email]{background:var(--white);border:1px solid var(--fog);border-radius:6px;font-family:'Manrope';font-size:16px;padding:13px 16px;color:var(--carbon);width:100%;max-width:340px;flex:1 1 260px}
+  input[type=text],input[type=email]{background:var(--white);border:1px solid var(--fog);border-radius:6px;font-family:'Manrope';font-size:16px;padding:13px 16px;color:var(--carbon);width:100%}
+  form.checkin input[type=email]{max-width:340px;flex:1 1 260px}
   input:focus{outline:none;box-shadow:0 0 0 2px var(--focus-amber)}
   .btn{background:var(--ignition);color:var(--white);border:none;border-radius:6px;font-family:'Manrope';font-weight:600;font-size:15px;padding:13px 22px;cursor:pointer;
     box-shadow:inset 0 .5px 0 rgba(255,255,255,.18),inset 0 0 0 .75px rgba(23,26,31,.32),0 2px 0 rgba(23,26,31,.12)}
@@ -68,6 +69,7 @@
     </div>
 
     <form class="checkin" id="waitlistForm" novalidate>
+      <input type="text" id="fname" name="FIRSTNAME" placeholder="Your first name" required autocomplete="given-name" style="max-width:200px;flex:1 1 160px">
       <input type="email" id="email" name="EMAIL" placeholder="Your best email" required autocomplete="email">
       <button class="btn" type="submit">Count Me In</button>
     </form>
@@ -76,7 +78,7 @@
     <p class="authority">Built by Pan Seth — 10 years building AI at enterprise scale, $600M+ in business impact, and two patents. Now bringing that leverage to entrepreneurs.</p>
   </div>
 
-  <div id="saved">You're in. Watch your inbox — I'll show you what I'm building.</div>
+  <div id="saved"><span id="savedText">You're in. Watch your inbox — I'll show you what I'm building.</span></div>
 
 </div>
 
@@ -84,9 +86,10 @@
   // Brevo form endpoint — connected to the "SuperFounder Waitlist" list (ID 11)
   const FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFADEakQxApscr8hosuEmkUuMDENvkj5PrcpntBznc2Nw_eSdeF1I1kpGg9nJE9xLXv6mkXkgwRwLyBZkZL7Y5RT3yjc7S8Lj4jAAPO4cDthK4f6kwDjLygvPiVZYmNQggA60Q5AofJ39lEof4awf4vv6jKMLCE-6zhJKUcRXyfGa87RaXd9UL2DKwny8G82tNNganngtANA6s_w==";
 
-  function brevoFD(email){
+  function brevoFD(email, name){
     const fd = new FormData();
     fd.append('EMAIL', email);
+    fd.append('FIRSTNAME', name);            // enables "Hi {{contact.FIRSTNAME}}" in Brevo emails
     fd.append('email_address_check', '');    // Brevo honeypot field — must be present and empty
     fd.append('locale', 'en');
     return fd;
@@ -94,14 +97,21 @@
 
   document.getElementById('waitlistForm').addEventListener('submit', function(e){
     e.preventDefault();
+    const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('email').value.trim();
+    if(!name){
+      document.getElementById('fname').focus();
+      document.getElementById('fname').style.boxShadow = '0 0 0 2px rgba(201,54,61,.5)';
+      return;
+    }
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
       document.getElementById('email').focus();
       document.getElementById('email').style.boxShadow = '0 0 0 2px rgba(201,54,61,.5)';
       return;
     }
-    fetch(FORM_ACTION, {method:'POST', mode:'no-cors', body: brevoFD(email)});
+    fetch(FORM_ACTION, {method:'POST', mode:'no-cors', body: brevoFD(email, name)});
     document.getElementById('main').style.display = 'none';
+    document.getElementById('savedText').textContent = "You're in, " + name + ". Watch your inbox — I'll show you what I'm building.";
     document.getElementById('saved').style.display = 'block';
     window.scrollTo({top:0});
   });
