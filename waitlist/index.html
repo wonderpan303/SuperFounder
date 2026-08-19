@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SuperFounder Waitlist — Get Found Everywhere</title>
-<meta name="description" content="Join the SuperFounder founding waitlist — visibility infrastructure for experts who refuse to stay hidden.">
+<title>SuperFounder Waitlist | Get Found Everywhere</title>
+<meta name="description" content="Join the SuperFounder founding waitlist. Visibility infrastructure for founders, solopreneurs and passionate people building something the world deserves to know about.">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,21 +51,23 @@
 
   <div id="main">
     <p class="eyebrow">Founding Waitlist</p>
-    <h1>You're great at what you do. So why are you still so hard to find?</h1>
+    <h1>You're building something you believe in. So why is it still so hard to get noticed?</h1>
 
-    <p class="isthis">For coaches, consultants, experts &amp; founders whose work deserves to be known.</p>
+    <p class="isthis">For founders, solopreneurs &amp; passionate people building something they want the world to know about.</p>
 
     <ul class="diag">
-      <li><span>&rarr;</span>You know you're good at what you do — but the market doesn't know you yet. You watch less experienced voices win the clients, invites and opportunities while you remain the best-kept secret.</li>
-      <li><span>&rarr;</span>You've tried the courses, prompts and AI tools. You know what you're "supposed" to do — but showing up consistently still feels like a second full-time job.</li>
-      <li><span>&rarr;</span>You finally sit down, create a month of content, schedule it all… and by week three, you've dropped it. The next month never happens.</li>
-      <li><span>&rarr;</span>Every gap in visibility compounds: fewer new people discover you, your email list stalls, your webinars get emptier, and your pipeline becomes unpredictable.</li>
-      <li><span>&rarr;</span>Cold outreach isn't getting easier. When people don't know you, trust takes longer to earn.</li>
+      <li><span>&rarr;</span>You have something you're passionate about building, but hardly anyone knows it exists.</li>
+      <li><span>&rarr;</span>You watch louder voices get the attention, opportunities and customers while your work stays hidden in the background.</li>
+      <li><span>&rarr;</span>You know you need to show up online consistently, but becoming a content creator was never the reason you started your business.</li>
+      <li><span>&rarr;</span>You've tried ChatGPT, Claude, prompts, Canva and other AI tools, and somehow you're still the one who has to figure out what to say, create it, schedule it and keep doing it.</li>
+      <li><span>&rarr;</span>You start posting with excitement, disappear when life gets busy, then feel like you're starting from zero all over again.</li>
+      <li><span>&rarr;</span>You know that if more of the right people simply knew about you, your business could grow much faster.</li>
+      <li><span>&rarr;</span>You don't want to spend your life learning marketing. You want to spend it building what you're here to build.</li>
     </ul>
 
     <div class="intro">
-      <h2>Turn your expertise into an always-on visibility engine.</h2>
-      <p>SuperFounder turns your ideas into content in your voice and keeps your expertise showing up where your buyers are — without you becoming a full-time marketer or AI expert. New people keep discovering you. Your ideas keep showing up. Your audience keeps growing. Your visibility keeps working — while you stay focused on the work you're actually great at.</p>
+      <h2>Let the world discover what you're building.</h2>
+      <p>SuperFounder turns your ideas, experiences and voice into content that sounds like you, and keeps your story showing up consistently across the places your future customers are paying attention. No becoming a full-time marketer. No becoming an AI expert. No spending your best hours figuring out what to post. You build the thing. SuperFounder helps the world find it.</p>
     </div>
 
     <form class="checkin" id="waitlistForm" novalidate>
@@ -75,22 +77,22 @@
     </form>
     <p class="micro">Founding members lock in our lowest launch price.</p>
 
-    <p class="authority">Built by Pan Seth — 10 years building AI at enterprise scale, $600M+ in business impact, and two patents. Now bringing that leverage to entrepreneurs.</p>
+    <p class="authority">Built by Pan Seth: 10 years building AI at enterprise scale, $600M+ in business impact, and two patents. Now bringing that leverage to people building something of their own, just like she is.</p>
   </div>
 
-  <div id="saved"><span id="savedText">You're in. Watch your inbox — I'll show you what I'm building.</span></div>
+  <div id="saved"><span id="savedText">You're in. Watch your inbox: I'll show you what I'm building.</span></div>
 
 </div>
 
 <script>
-  // Brevo form endpoint — connected to the "SuperFounder Waitlist" list (ID 11)
+  // Brevo form endpoint (connected to the "SuperFounder Waitlist" list, ID 11)
   const FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFADEakQxApscr8hosuEmkUuMDENvkj5PrcpntBznc2Nw_eSdeF1I1kpGg9nJE9xLXv6mkXkgwRwLyBZkZL7Y5RT3yjc7S8Lj4jAAPO4cDthK4f6kwDjLygvPiVZYmNQggA60Q5AofJ39lEof4awf4vv6jKMLCE-6zhJKUcRXyfGa87RaXd9UL2DKwny8G82tNNganngtANA6s_w==";
 
   function brevoFD(email, name){
     const fd = new FormData();
     fd.append('EMAIL', email);
     fd.append('FIRSTNAME', name);            // enables "Hi {{contact.FIRSTNAME}}" in Brevo emails
-    fd.append('email_address_check', '');    // Brevo honeypot field — must be present and empty
+    fd.append('email_address_check', '');    // Brevo honeypot field, must be present and empty
     fd.append('locale', 'en');
     return fd;
   }
@@ -111,7 +113,7 @@
     }
     fetch(FORM_ACTION, {method:'POST', mode:'no-cors', body: brevoFD(email, name)});
     document.getElementById('main').style.display = 'none';
-    document.getElementById('savedText').textContent = "You're in, " + name + ". Watch your inbox — I'll show you what I'm building.";
+    document.getElementById('savedText').textContent = "You're in, " + name + ". Watch your inbox: I'll show you what I'm building.";
     document.getElementById('saved').style.display = 'block';
     window.scrollTo({top:0});
   });
