@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SuperFounder — Get Found Everywhere</title>
+<meta name="description" content="The AI visibility platform for experts who refuse to stay their market's best-kept secret.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --porcelain:#FAF7F2; --carbon:#171A1F; --white:#FFFFFF;
+    --carbon-83:rgba(23,26,31,.83); --graphite:#48505A;
+    --fog:#E7E4DE; --ignition:#C9363D; --amber:#F1A848;
+    --focus-amber:rgba(241,168,72,.72);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--porcelain);color:var(--carbon);font-family:'Manrope',ui-sans-serif,system-ui;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:96px 24px}
+  .eyebrow{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--graphite);text-align:center;margin-bottom:16px}
+  h1{font-family:'Sora',ui-sans-serif;font-weight:700;font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:-1.5px;text-align:center;margin-bottom:56px}
+  .diag{list-style:none;margin-bottom:56px}
+  .diag li{display:flex;gap:14px;font-size:17px;color:var(--carbon-83);margin-bottom:24px}
+  .diag li span{color:var(--amber);font-weight:600;flex-shrink:0}
+  .intro{text-align:center;margin-bottom:56px}
+  .intro h2{font-family:'Sora',ui-sans-serif;font-weight:600;font-size:clamp(22px,4vw,28px);line-height:1.25;letter-spacing:-.5px;margin-bottom:20px}
+  .intro p{font-size:18px;font-weight:600;color:var(--carbon-83);max-width:620px;margin:0 auto}
+  form.checkin{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+  input[type=email],textarea{background:var(--white);border:1px solid var(--fog);border-radius:6px;font-family:'Manrope';font-size:16px;padding:13px 16px;color:var(--carbon);width:100%}
+  form.checkin input[type=email]{max-width:340px;flex:1 1 260px}
+  input:focus,textarea:focus{outline:none;box-shadow:0 0 0 2px var(--focus-amber)}
+  .btn{background:var(--ignition);color:var(--white);border:none;border-radius:6px;font-family:'Manrope';font-weight:600;font-size:15px;padding:13px 22px;cursor:pointer;
+    box-shadow:inset 0 .5px 0 rgba(255,255,255,.18),inset 0 0 0 .75px rgba(23,26,31,.32),0 2px 0 rgba(23,26,31,.12)}
+  .btn:hover{filter:brightness(1.06)}
+  .micro{font-size:13px;font-weight:500;color:var(--graphite);text-align:center;margin-bottom:56px}
+  .authority{font-size:14px;color:var(--graphite);text-align:center;max-width:560px;margin:0 auto;border-top:1px solid var(--fog);padding-top:32px}
+  /* confirmation / voice snapshot */
+  #snapshot{display:none}
+  #snapshot h2{font-family:'Sora';font-weight:600;font-size:24px;text-align:center;margin-bottom:12px}
+  #snapshot .ctx{font-size:16px;color:var(--carbon-83);text-align:center;max-width:560px;margin:0 auto 32px}
+  #snapshot label{display:block;font-weight:600;font-size:15px;margin:20px 0 8px}
+  #snapshot textarea{min-height:72px;resize:vertical}
+  #snapshot .actions{text-align:center;margin-top:28px}
+  #snapshot .escape{display:block;font-size:13px;color:var(--graphite);margin-top:12px}
+  #saved{display:none;text-align:center;font-family:'Sora';font-weight:600;font-size:22px;padding:40px 0}
+  header.brand{padding:20px 24px;max-width:1200px;margin:0 auto}
+  header.brand img{height:40px;width:auto;display:block}
+  .isthis{font-size:15px;font-weight:600;color:var(--graphite);text-align:center;margin-bottom:24px}
+  .isthis em{font-style:normal;color:var(--carbon);border-bottom:2px solid var(--amber)}
+  @media(max-width:640px){.wrap{padding:48px 20px}.diag li{font-size:16px}header.brand img{height:32px}}
+</style>
+</head>
+<body>
+<header class="brand">
+  <!-- Upload your RED logo file to the repo as logo.png (or logo.svg — update src to match) -->
+  <img src="/logo.png" alt="SuperFounder" onerror="this.style.display='none'">
+</header>
+<div class="wrap">
+
+  <div id="main">
+    <p class="eyebrow">The Expert Invisibility Diagnostic</p>
+    <h1>For the Expert the Market Can't&nbsp;Afford to Overlook</h1>
+
+    <p class="isthis">You're the expert. And yet — <em>is this you?</em></p>
+
+    <ul class="diag">
+      <li><span>&rarr;</span>You finally sat down, created a month of content, scheduled all of it… and dropped it by week three. The next month never happened.</li>
+      <li><span>&rarr;</span>Every gap in posting costs you: leads slip away quietly, your email list hasn't grown in months, and your webinars are barely attended.</li>
+      <li><span>&rarr;</span>Cold outreach barely gets a reply anymore — we're in a trust recession, and strangers don't buy from strangers.</li>
+      <li><span>&rarr;</span>You've bought the courses, saved the prompts, tried the AI tools — and posting still feels like a second full-time job.</li>
+      <li><span>&rarr;</span>You've realized generic AI prompts just make you sound like a robot — and a skeptical market punishes robotic voices hardest.</li>
+      <li><span>&rarr;</span>You watch less experienced voices win the clients and the invites — while you stay the best-kept secret.</li>
+    </ul>
+
+    <div class="intro">
+      <h2>Imagine your name reaching more rooms in a week than you could walk into in a year.</h2>
+      <p>SuperFounder is the AI visibility multiplier that turns your day-to-day insights into an omnipresent message — everywhere your buyers scroll, every single day, even while you sleep. New people keep discovering you. Your email list keeps exploding. Your rooms fill up.</p>
+    </div>
+
+    <form class="checkin" id="waitlistForm" novalidate>
+      <input type="text" id="fname" name="FIRSTNAME" placeholder="Your first name" required autocomplete="given-name" style="max-width:200px;flex:1 1 160px">
+      <input type="email" id="email" name="EMAIL" placeholder="Your best email" required autocomplete="email">
+      <button class="btn" type="submit">Lock My Founding Rate</button>
+    </form>
+    <p class="micro">Founding members lock in the lowest price this platform will ever have.</p>
+
+    <p class="authority">Engineered by Pan — the same AI judgment that drove $600M+ in impact inside the world's largest organizations, two patents. The output of a $10,000/month agency, for a fraction of the cost.</p>
+  </div>
+
+  <div id="snapshot">
+    <h2 id="snapTitle">You're in. One thing before you go —</h2>
+    <p class="ctx">Your founding spot comes with a Voice Snapshot: 3 quick questions about how you actually talk. When the platform meets you, it starts from <em>your</em> voice — never a template.</p>
+    <form id="snapshotForm">
+      <label for="q1">What do clients always say working with you feels like?</label>
+      <textarea id="q1" name="VOICE_Q1"></textarea>
+      <label for="q2">What's one belief you hold that most people in your field would push back on?</label>
+      <textarea id="q2" name="VOICE_Q2"></textarea>
+      <label for="q3">What do you wish you were known for, one year from now?</label>
+      <textarea id="q3" name="VOICE_Q3"></textarea>
+      <div class="actions">
+        <button class="btn" type="submit">Save My Voice Snapshot</button>
+        <span class="escape">or finish it from the email we just sent you</span>
+      </div>
+    </form>
+  </div>
+
+  <div id="saved">Saved. Watch your inbox — I'll show you what I'm building. 💎</div>
+
+</div>
+
+<script>
+  // Brevo form endpoint — connected to the "SuperFounder Waitlist" list (ID 11)
+  const FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFADEakQxApscr8hosuEmkUuMDENvkj5PrcpntBznc2Nw_eSdeF1I1kpGg9nJE9xLXv6mkXkgwRwLyBZkZL7Y5RT3yjc7S8Lj4jAAPO4cDthK4f6kwDjLygvPiVZYmNQggA60Q5AofJ39lEof4awf4vv6jKMLCE-6zhJKUcRXyfGa87RaXd9UL2DKwny8G82tNNganngtANA6s_w==";
+  let savedEmail = "", savedName = "";
+  function brevoFD(email, name){
+    const fd = new FormData();
+    fd.append('EMAIL', email);
+    fd.append('FIRSTNAME', name);            // enables "Hi {{contact.FIRSTNAME}}" in Brevo emails
+    fd.append('email_address_check', '');    // Brevo honeypot field — must be present and empty
+    fd.append('locale', 'en');
+    return fd;
+  }
+
+  document.getElementById('waitlistForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if(!name){
+      document.getElementById('fname').focus();
+      document.getElementById('fname').style.boxShadow = '0 0 0 2px rgba(201,54,61,.5)';
+      return;
+    }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      document.getElementById('email').focus();
+      document.getElementById('email').style.boxShadow = '0 0 0 2px rgba(201,54,61,.5)';
+      return;
+    }
+    savedEmail = email; savedName = name;
+    fetch(FORM_ACTION, {method:'POST', mode:'no-cors', body: brevoFD(email, name)});
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('snapTitle').textContent = "You're in, " + name + ". One thing before you go —";
+    document.getElementById('snapshot').style.display = 'block';
+    window.scrollTo({top:0});
+  });
+
+  document.getElementById('snapshotForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const fd = brevoFD(savedEmail, savedName);
+    fd.append('VOICE_Q1', document.getElementById('q1').value);
+    fd.append('VOICE_Q2', document.getElementById('q2').value);
+    fd.append('VOICE_Q3', document.getElementById('q3').value);
+    fetch(FORM_ACTION, {method:'POST', mode:'no-cors', body: fd});
+    document.getElementById('snapshot').style.display = 'none';
+    document.getElementById('saved').style.display = 'block';
+  });
+</script>
+</body>
+</html>
