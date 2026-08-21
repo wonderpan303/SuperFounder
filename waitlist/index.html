@@ -128,11 +128,7 @@
         </details>
         <details>
           <summary>Is this another content-creation tool?</summary>
-          <p>No. The goal isn't to give you another tool and tell you to figure it out. The goal is to help turn your ideas and your voice into a consistent presence for your business.</p>
-        </details>
-        <details>
-          <summary>When does SuperFounder launch?</summary>
-          <p>We're currently building SuperFounder with our founding members. Join the waitlist and we'll keep you updated as we get closer to launch.</p>
+          <p>No. Other tools help you write content, then leave you to post it, schedule it, and keep the whole system running yourself. SuperFounder is closer to an idea extraction tool: you share what's already in your head, and it handles the content, the distribution, and all the logistics from there. What comes back is simple: your email list fills up, and that turns into new customers.</p>
         </details>
       </div>
     </div>
@@ -154,7 +150,7 @@
     <p class="micro">Founding members lock in our lowest launch price.</p>
   </div>
 
-  <div id="saved"><span id="savedText">You're in. Watch your inbox: I'll show you what I'm building.</span></div>
+  <div id="saved"><span id="savedText">You're in. You're now one of the first people building this with me. Watch your inbox, that's where it gets good.</span></div>
 
 </div>
 
@@ -187,7 +183,7 @@
     }
     fetch(FORM_ACTION, {method:'POST', mode:'no-cors', body: brevoFD(email, name)});
     document.getElementById('main').style.display = 'none';
-    document.getElementById('savedText').textContent = "You're in, " + name + ". Watch your inbox: I'll show you what I'm building.";
+    document.getElementById('savedText').textContent = "You're in, " + name + ". You're now one of the first people building this with me. Watch your inbox, that's where it gets good.";
     document.getElementById('saved').style.display = 'block';
     window.scrollTo({top:0});
   });
