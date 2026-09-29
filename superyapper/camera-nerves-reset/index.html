@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 15-Minute Camera Nerves Reset · The SuperYapper Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+/* ============ EDIT THESE ============ */
+/* Join link lives in the script at the bottom: JOIN_URL */
+
+:root{
+  --deep:#0E3A3B; --teal:#177E78; --red:#D32A2A; --mustard:#F2A93B;
+  --paper:#FFFCF5; --panel:#F3EEE2; --ink:#000000; --text:#14302F; --muted:#4B6463;
+  --on-red:#FFFFFF; --rule:#0E3A3B;
+  --display:"Bangers", "Impact", "Arial Black", sans-serif;
+  --body:"Lato", "Helvetica Neue", Arial, sans-serif;
+  --hand:"Permanent Marker", "Comic Sans MS", cursive;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A2627; --panel:#113435; --ink:#FFFFFF; --text:#EFE9DC; --muted:#A9C2BF; --rule:#F2A93B;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A2627; --panel:#113435; --ink:#FFFFFF; --text:#EFE9DC; --muted:#A9C2BF; --rule:#F2A93B;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+
+/* ---------- ink doodles ---------- */
+.ink{stroke:var(--ink);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ink-red{stroke:var(--red)}
+.ink-teal{stroke:var(--teal)}
+.ink-mus{stroke:var(--mustard)}
+.fill-red{fill:var(--red);stroke:none}
+.fill-mus{fill:var(--mustard);stroke:none}
+
+/* ---------- brush panels ---------- */
+.brush{position:relative;display:inline-block;padding:.12em .55em .05em;color:var(--on-red);z-index:0}
+.brush::before{content:"";position:absolute;inset:-6px -10px;z-index:-1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60' preserveAspectRatio='none'%3E%3Cpath fill='%23D32A2A' d='M6 14 L40 8 L90 11 L150 5 L210 9 L270 4 L330 8 L392 6 L386 20 L398 31 L389 44 L396 55 L330 52 L260 57 L200 53 L140 58 L80 53 L20 57 L4 49 L12 38 L2 27 Z'/%3E%3Cpath fill='%23B61F21' opacity='.5' d='M30 46 L120 44 L230 48 L340 45 L380 49 L300 52 L170 51 L60 52 Z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.brush.mus{color:#000}
+.brush.mus::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60' preserveAspectRatio='none'%3E%3Cpath fill='%23F2A93B' d='M4 18 L60 10 L130 14 L200 7 L280 12 L350 8 L396 13 L390 28 L397 44 L340 50 L270 46 L190 53 L110 48 L40 54 L6 47 L12 33 Z'/%3E%3C/svg%3E")}
+.hand{font-family:var(--hand);color:var(--red);font-size:1.15rem;line-height:1.3;display:inline-block;transform:rotate(-3deg)}
+
+/* ---------- header ---------- */
+.masthead{background:var(--red);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.wordmark{font-family:var(--display);font-size:1.6rem;letter-spacing:.04em;transform:skew(-8deg);line-height:1;display:flex;align-items:center;gap:10px}
+.wordmark svg{width:34px;height:34px;flex:none;transform:skew(8deg)}
+.reps{font-weight:900;font-size:.95rem;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.reps .dots{display:flex;gap:4px}
+.reps .dot{width:12px;height:12px;border:2px solid #fff;border-radius:50%;transition:background .3s}
+.reps .dot.on{background:var(--mustard);border-color:var(--mustard)}
+
+/* ---------- nav ---------- */
+nav.stops{position:sticky;top:0;z-index:10;background:var(--deep);border-bottom:4px solid var(--mustard)}
+nav.stops .row{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1100px;margin:0 auto}
+nav.stops .row::-webkit-scrollbar{display:none}
+.stop{flex:none;background:none;border:0;color:#CFE3E0;padding:12px 16px 10px;text-align:left;line-height:1.15;border-bottom:4px solid transparent;margin-bottom:-4px}
+.stop b{display:block;font-family:var(--display);font-weight:400;font-size:1.25rem;letter-spacing:.03em;color:#fff}
+.stop small{font-size:.78rem;opacity:.85}
+.stop[aria-selected="true"]{background:var(--teal);border-bottom-color:var(--red)}
+.stop .tick{color:var(--mustard);font-weight:900}
+
+/* ---------- layout ---------- */
+main{max-width:1100px;margin:0 auto;padding:0 20px 80px}
+section.panel{display:none;padding-top:44px}
+section.panel.active{display:block}
+.measure{max-width:680px}
+h1,h2,h3{font-family:var(--display);font-weight:400;color:var(--ink);letter-spacing:.02em;line-height:1.02;margin:0}
+h1{font-size:clamp(3rem,9vw,6.4rem)}
+h2{font-size:clamp(2.4rem,6.5vw,4.6rem)}
+h3{font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:.4rem}
+p{margin:0 0 1rem}
+.lede{font-size:1.25rem;max-width:640px}
+.muted{color:var(--muted)}
+
+/* start hero */
+.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:32px;align-items:end}
+.hero h1 .brush{margin-top:.15em}
+.hero .aside{padding-bottom:18px}
+.hero .aside p{font-size:1rem}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+
+.audit{margin:48px 0 0;border-left:6px solid var(--mustard);padding:6px 0 6px 20px;max-width:680px}
+.audit p{margin:0}
+
+/* three reframes: deliberate imbalance */
+.three{margin:64px 0 0;display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:auto auto;gap:18px}
+.frame{background:none;border:0;text-align:left;color:inherit;padding:22px 24px;position:relative}
+.frame .n{font-family:var(--hand);font-size:1.1rem}
+.frame .t{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.8rem);line-height:1;display:block;margin:.1em 0 .25em}
+.frame .d{display:block;font-size:1rem}
+.frame .go{display:inline-block;margin-top:10px;font-weight:900;font-size:.95rem;border-bottom:3px solid currentColor}
+.f1{grid-row:span 2;background:var(--red);color:#fff;transform:rotate(-1deg)}
+.f1 .t{font-size:clamp(2.6rem,6vw,4.4rem)}
+.f2{background:var(--teal);color:#fff}
+.f3{background:var(--mustard);color:#000;transform:rotate(.8deg)}
+.frame:hover .go{border-bottom-style:dashed}
+@media (max-width:760px){.three{grid-template-columns:1fr}.f1{grid-row:auto}}
+
+/* route */
+.route{margin:72px 0 0}
+.route svg{width:100%;height:auto;display:block}
+.route text{font-family:var(--body);fill:var(--text)}
+.route .lbl{font-family:var(--display);font-size:26px;fill:var(--ink)}
+.route .min{font-size:15px;fill:var(--muted)}
+.route a{cursor:pointer}
+
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:28px}
+.how p{font-size:1rem;margin:0}
+.how b{font-family:var(--display);font-weight:400;font-size:1.5rem;display:block;color:var(--ink)}
+@media (max-width:760px){.how{grid-template-columns:1fr}}
+
+/* stop header */
+.stophead{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;margin-bottom:28px}
+.stopnum{font-family:var(--display);font-size:clamp(5rem,14vw,9rem);line-height:.8;color:var(--red);-webkit-text-stroke:2px var(--ink)}
+.quote{font-family:var(--hand);color:var(--teal);font-size:1.2rem;margin:.6rem 0 0}
+.why-box{background:var(--panel);padding:22px 24px;margin:0 0 40px;max-width:720px;border-radius:2px}
+.why-box h3{font-size:1.5rem}
+.why-box p:last-child{margin:0}
+
+/* drills */
+.drill{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:30px 0;border-top:3px solid var(--rule)}
+.drill:last-of-type{border-bottom:3px solid var(--rule)}
+.drill .art{width:200px}
+.drill .art svg{width:100%;height:auto}
+.drill .time{font-family:var(--hand);color:var(--red);font-size:1rem}
+.drill ol,.drill ul{margin:.3rem 0 1rem;padding-left:1.3rem}
+.drill li{margin:.25rem 0}
+@media (max-width:640px){.drill{grid-template-columns:1fr}.drill .art{width:150px}}
+
+.btn{text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:3px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:900;padding:10px 18px;border-radius:40px;font-size:1rem}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn:active{transform:translateY(1px)}
+.timer{display:inline-flex;align-items:center;gap:12px;margin:.3rem 0 .6rem}
+.timer output{font-family:var(--display);font-size:2rem;min-width:3.2ch;color:var(--ink)}
+
+/* commit */
+.commit{margin:36px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.commit label{display:flex;align-items:center;gap:14px;font-weight:900;font-size:1.15rem;cursor:pointer;color:var(--ink)}
+.commit input{width:30px;height:30px;accent-color:var(--red);flex:none}
+.commit .done{font-family:var(--hand);color:var(--red);font-size:1.2rem;display:none}
+.commit.is-done .done{display:inline-block}
+.next{margin-top:26px}
+
+/* breathing pacer */
+.pacer{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin:10px 0}
+.orb{width:150px;height:150px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:#fff;font-family:var(--display);font-size:1.7rem;letter-spacing:.04em;transform:scale(.6);transition:transform 4s ease-in-out;box-shadow:0 0 0 6px var(--paper),0 0 0 9px var(--teal)}
+.orb.out{transition-duration:6s}
+
+/* let them stamp */
+.letthem{display:flex;gap:10px;flex-wrap:wrap;margin:.6rem 0}
+.field{flex:1 1 260px;border:3px solid var(--ink);background:var(--paper);color:var(--text);padding:10px 14px;font:inherit;border-radius:4px}
+textarea.field{width:100%;min-height:74px;resize:vertical}
+.stamps{list-style:none;padding:0;margin:14px 0 0}
+.stamps li{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:10px 0;border-bottom:2px dashed var(--muted)}
+.stamps .fear{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.stamp{font-family:var(--display);color:var(--red);border:3px solid var(--red);padding:0 10px;font-size:1.5rem;transform:rotate(-6deg);display:inline-block;letter-spacing:.05em}
+
+/* yap card */
+.builder{display:grid;gap:14px;max-width:620px;margin:.6rem 0}
+.builder label{font-weight:700;font-size:.98rem;display:grid;gap:6px}
+.yapcard{margin-top:22px;max-width:520px;background:var(--mustard);color:#000;padding:26px 28px 22px;transform:rotate(-1.2deg);display:none}
+.yapcard.show{display:block}
+.yapcard .to{font-family:var(--hand);font-size:1.05rem}
+.yapcard .big{font-family:var(--display);font-size:2rem;line-height:1.05;margin:.3rem 0 .6rem}
+.yapcard ul{margin:0;padding-left:1.2rem}
+.yapcard .foot{margin-top:14px;font-size:.85rem;font-weight:700}
+
+/* 15-min runner */
+.runner{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;align-items:center;background:var(--deep);color:#fff;padding:34px;margin:10px 0 34px}
+.runner .clock{font-family:var(--display);font-size:clamp(4.5rem,13vw,8rem);line-height:.9;color:var(--mustard)}
+.runner .phase{font-family:var(--hand);color:#fff;opacity:.9}
+.runner h3{color:#fff;font-size:clamp(2rem,4vw,2.8rem)}
+.runner p{color:#E8F1EF}
+.runner .art svg{width:100%;max-width:260px;height:auto}
+.runner .art .ink{stroke:#fff}
+.runner .ctrl{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.runner .btn{background:#fff;color:#000;border-color:#fff}
+.runner .btn.ghost{background:transparent;color:#fff}
+.segs{display:flex;gap:4px;margin-top:22px;grid-column:1/-1}
+.seg{height:10px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
+.seg i{position:absolute;inset:0;width:0;background:var(--mustard)}
+@media (max-width:760px){.runner{grid-template-columns:1fr;padding:24px}}
+
+.plan{list-style:none;padding:0;margin:0;max-width:720px}
+.plan li{display:grid;grid-template-columns:78px 1fr;gap:16px;padding:12px 0;border-bottom:2px solid var(--panel)}
+.plan .m{font-family:var(--display);font-size:1.4rem;color:var(--red)}
+.plan b{color:var(--ink)}
+.freeze{margin-top:40px;background:var(--red);color:#fff;padding:24px 28px;max-width:720px;transform:rotate(-.6deg)}
+.freeze h3{color:#fff}
+.freeze p{margin:.3rem 0}
+
+/* energy */
+.energy{margin:72px 0 0;display:grid;grid-template-columns:1fr 1.25fr;gap:36px;background:var(--deep);color:#EAF3F1;padding:40px 38px;transform:rotate(-.5deg)}
+.energy h2{color:var(--mustard);font-size:clamp(3rem,8vw,5.6rem)}
+.energy .big{font-family:var(--display);font-size:clamp(1.6rem,3.4vw,2.3rem);color:#fff;line-height:1.1;margin-top:.5rem}
+.energy .hand{color:#fff;opacity:.9}
+.energy b{color:#fff}
+@media (max-width:760px){.energy{grid-template-columns:1fr;padding:28px 24px}}
+.tip{margin:14px 0 0;padding:14px 18px;background:var(--panel);border-left:6px solid var(--mustard)}
+.tip .hand{font-size:1rem;margin-bottom:4px}
+.tip p{margin:0;font-size:1rem}
+.sayit{margin:22px 0 0;padding:20px 22px;background:var(--red);color:#fff;transform:rotate(-.8deg)}
+.sayit .hand{color:#fff;font-size:1rem}
+.sayit p{font-family:var(--display);font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.15;margin:.35rem 0 0;letter-spacing:.02em}
+.magnetic{margin:0 0 40px}
+.magnetic .panq{font-family:var(--hand);color:var(--teal);font-size:1.25rem;max-width:680px;margin:.4rem 0 1.4rem}
+.pillars{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0;border:3px solid var(--rule)}
+.pillar{padding:22px 22px}
+.pillar+.pillar{border-left:3px solid var(--rule)}
+.pillar h3{font-size:2rem}
+.pillar .sub{font-family:var(--hand);color:var(--red);font-size:1rem;display:block;margin-bottom:.5rem}
+.pillar p{font-size:1rem;margin:0}
+@media (max-width:760px){.pillars{grid-template-columns:1fr}.pillar+.pillar{border-left:0;border-top:3px solid var(--rule)}}
+.slow{margin:10px 0 0;padding:34px 0 30px;border-top:3px solid var(--rule)}
+.slow .words{font-family:var(--display);color:var(--ink);font-size:clamp(3rem,9vw,6rem);line-height:.95;letter-spacing:.03em}
+.slow .words span{display:block}
+.slow .words span:nth-child(2){padding-left:1.2em}
+.slow .words span:nth-child(3){padding-left:2.4em;color:var(--red)}
+.slow .words span:nth-child(4){padding-left:3.6em}
+.slow p{max-width:620px;margin-top:18px}
+.yapcard .open{font-style:italic;margin:.2rem 0 .7rem}
+
+/* gate */
+body.locked nav.stops, body.locked main, body.locked .reps, body.locked footer{display:none}
+#gate{display:none;max-width:1100px;margin:0 auto;padding:56px 20px 80px}
+body.locked #gate{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+#gate h1{font-size:clamp(3rem,8vw,5.6rem)}
+#gate .lede{margin-top:18px}
+#gate form{background:var(--deep);color:#fff;padding:30px 28px;transform:rotate(.6deg);display:grid;gap:14px}
+#gate form h3{color:var(--mustard);font-size:2rem}
+#gate label{display:grid;gap:6px;font-weight:700;font-size:.95rem}
+#gate .field{border-color:#fff;background:#fff;color:#000}
+#gate .btn{justify-content:center;font-size:1.1rem;padding:14px}
+#gate .fine{font-size:.8rem;color:#CFE3E0;margin:0}
+#gate .err{color:var(--mustard);font-weight:700;font-size:.9rem;min-height:1.2em;margin:0}
+.inside{list-style:none;padding:0;margin:26px 0 0;max-width:560px}
+.inside li{padding:12px 0;border-bottom:2px dashed var(--muted);font-size:1.05rem}
+.inside b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--red);letter-spacing:.03em;margin-right:8px}
+@media (max-width:760px){body.locked #gate{grid-template-columns:1fr}}
+
+/* why */
+.dig{max-width:680px;display:grid;gap:18px;margin-top:10px}
+.dig label{display:grid;gap:8px;font-weight:900;color:var(--ink)}
+.dig .deeper{padding-left:24px;border-left:4px solid var(--mustard)}
+.dig .deeper2{padding-left:48px;border-left:4px solid var(--red)}
+.oneline{font-family:var(--display);font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--ink)}
+.panquote{margin:34px 0;max-width:680px}
+.panquote blockquote{margin:0;font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--ink);line-height:1.1}
+.panquote cite{font-style:normal;font-family:var(--hand);color:var(--red)}
+
+.cta{margin-top:56px;display:grid;grid-template-columns:1fr;gap:0;background:var(--ink);color:var(--paper)}
+.cta .l{padding:44px;max-width:760px}
+.cta .r{padding:36px;background:var(--teal);color:#fff}
+.cta h2{color:var(--paper);font-size:clamp(2.2rem,5vw,3.6rem)}
+.cta .r h3{color:#fff}
+.cta p{color:inherit}
+.cta .btn.red{font-size:1.1rem;padding:14px 24px}
+.cta .r .btn{background:#fff;color:#000;border-color:#fff}
+.cta .whatif{font-family:var(--display);font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.08;color:var(--mustard);margin:1.4rem 0 .5rem;letter-spacing:.02em}
+@media (max-width:760px){.cta{grid-template-columns:1fr}.cta .l,.cta .r{padding:26px}}
+
+.celebrate{display:none;margin:30px 0 0;padding:20px 24px;border:4px dashed var(--red);max-width:680px}
+.celebrate.show{display:block}
+
+footer{max-width:1100px;margin:0 auto;padding:30px 20px 50px;font-size:.88rem;color:var(--muted);border-top:2px solid var(--panel)}
+footer p{max-width:720px}
+</style>
+</head>
+<body class="locked">
+
+<!-- reusable rough-ink filter -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
+</svg>
+
+<header class="masthead">
+  <div class="wordmark" aria-label="The SuperYapper Club">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#fff" stroke-width="3"/><path d="M22 6 L13 22 H20 L17 34 L28 16 H21 Z" fill="#fff"/></svg>
+    The SuperYapper Club
+  </div>
+  <div class="reps" aria-live="polite"><span id="repText">Reps 0/5</span><span class="dots" id="repDots"></span></div>
+</header>
+
+<section id="gate" aria-label="Get the reset">
+  <div>
+    <span class="hand">Free. Fifteen minutes. You'll hit record by the end.</span>
+    <h1>The reset I run before every single video.</h1>
+    <p class="lede">Your body treats the camera like a threat. This walks it back, stop by stop, until you're calm enough to press record and actually sound like yourself.</p>
+    <ul class="inside">
+      <li><b>Worst one</b>Why your first video should be bad, on purpose</li>
+      <li><b>Let them</b>The stamp that shrinks judgment to its real size</li>
+      <li><b>Not about you</b>The yap card that turns you into the hook</li>
+      <li><b>15-min reset</b>The full routine, timed, step by step</li>
+    </ul>
+  </div>
+  <form id="gateForm" novalidate>
+    <h3>Where should I send it?</h3>
+    <label>First name<input class="field" id="gName" autocomplete="given-name" required></label>
+    <label>Email<input class="field" id="gEmail" type="email" autocomplete="email" required></label>
+    <input type="text" id="gTrap" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+    <p class="err" id="gErr" role="alert"></p>
+    <button class="btn red" type="submit">Start my reset</button>
+    <p class="fine">You'll get the reset plus emails from Pan and The SuperYapper Club about showing up on camera. Unsubscribe anytime.</p>
+  </form>
+</section>
+
+<nav class="stops" aria-label="Sections">
+  <div class="row" role="tablist">
+    <button class="stop" role="tab" data-go="start"><b>Start here</b><small>Read this first</small></button>
+    <button class="stop" role="tab" data-go="worst"><b>1 · Worst one</b><small>3 min <span class="tick" data-tick="worst"></span></small></button>
+    <button class="stop" role="tab" data-go="letthem"><b>2 · Let them</b><small>4 min <span class="tick" data-tick="letthem"></span></small></button>
+    <button class="stop" role="tab" data-go="them"><b>3 · Not about you</b><small>6 min <span class="tick" data-tick="them"></span></small></button>
+    <button class="stop" role="tab" data-go="reset"><b>4 · 15-min reset</b><small>The routine <span class="tick" data-tick="reset"></span></small></button>
+    <button class="stop" role="tab" data-go="why"><b>5 · Your why</b><small>What keeps you in <span class="tick" data-tick="why"></span></small></button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ================= START ================= -->
+<section class="panel" id="start" role="tabpanel">
+  <div class="hero">
+    <h1>Your body thinks the camera is a threat.<br><span class="brush">It isn't.</span></h1>
+    <div class="aside">
+      <span class="hand" id="hello">The reset I run before every single video.</span>
+      <p class="muted" style="margin-top:12px">Your brain can't tell the difference between being physically unsafe and feeling socially exposed. So it reacts the same way. Fifteen minutes, five stops, and by the end you'll have recorded something, not just read about it.</p>
+    </div>
+  </div>
+
+  <div class="audit">
+    <p>You might be thinking this is another breathing worksheet you'll bookmark and never open. Or that you'll start once you have more results, more testimonials, more time. That's the exact voice we're here to outgrow. Perfection is procrastination in a nicer outfit. Six months go by and we're still talking about doing it.</p>
+  </div>
+
+  <div class="three" aria-label="The three things to remember">
+    <button class="frame f1" data-go="worst">
+      <span class="n">One</span>
+      <span class="t">Your first one will be your worst one.</span>
+      <span class="d">And that's the whole point. Every rep after it gets you better, and it gets easier every single time.</span>
+      <span class="go">Do your first rep</span>
+    </button>
+    <button class="frame f2" data-go="letthem">
+      <span class="n">Two</span>
+      <span class="t">Let them.</span>
+      <span class="d">They can have their opinion. They don't get control of your future.</span>
+      <span class="go">Calm the body, shrink the judgment</span>
+    </button>
+    <button class="frame f3" data-go="them">
+      <span class="n">Three</span>
+      <span class="t">It was never about you.</span>
+      <span class="d">Make it about them and the nerves have nowhere to live.</span>
+      <span class="go">Point your attention outward</span>
+    </button>
+  </div>
+
+  <div class="energy">
+    <div>
+      <span class="hand">Underneath all three</span>
+      <h2>People follow energy.</h2>
+      <p class="big">And the energy of fun is so damn magnetic.</p>
+    </div>
+    <div>
+      <p>You're not getting on camera to prove something. You're sharing something you know. You're giving. You're connecting. And you're having fun in the process.</p>
+      <p>Here's why it works: as humans, we naturally mirror each other. An anxious person makes the room more anxious, not calm or safe. When you're locked in, cozy and grounded, the person on the other side feels that too.</p>
+      <p style="margin:0"><b>So flirt with the camera. Lock in. Let your personality out.</b> Come at it this way and you don't have to work so hard to look confident. You're just being yourself.</p>
+    </div>
+  </div>
+
+  <div class="route" aria-label="Your 15-minute route">
+    <h3>Your route</h3>
+    <svg viewBox="0 0 1000 230" role="img" aria-label="Five stops: Worst one, Let them, Not about you, 15-minute reset, Your why">
+      <g filter="url(#rough)">
+        <path class="ink ink-teal" stroke-dasharray="4 12" stroke-width="4" d="M60 150 C150 40, 230 40, 260 120 S 400 210, 470 120 S 610 30, 680 120 S 830 200, 930 90"/>
+      </g>
+      <g font-weight="700">
+        <a data-go="worst"><circle cx="60" cy="150" r="30" fill="#D32A2A"/><text x="60" y="160" text-anchor="middle" fill="#fff" style="font-family:Bangers;font-size:30px;fill:#fff">1</text><text class="lbl" x="60" y="212" text-anchor="middle">Worst one</text></a>
+        <a data-go="letthem"><circle cx="260" cy="120" r="30" fill="#177E78"/><text x="260" y="130" text-anchor="middle" style="font-family:Bangers;font-size:30px;fill:#fff">2</text><text class="lbl" x="260" y="70" text-anchor="middle">Let them</text></a>
+        <a data-go="them"><circle cx="470" cy="120" r="30" fill="#F2A93B"/><text x="470" y="130" text-anchor="middle" style="font-family:Bangers;font-size:30px;fill:#000">3</text><text class="lbl" x="470" y="186" text-anchor="middle">Not about you</text></a>
+        <a data-go="reset"><circle cx="680" cy="120" r="30" fill="#0E3A3B"/><text x="680" y="130" text-anchor="middle" style="font-family:Bangers;font-size:30px;fill:#fff">4</text><text class="lbl" x="680" y="70" text-anchor="middle">15-min reset</text></a>
+        <a data-go="why"><circle cx="930" cy="90" r="30" fill="#D32A2A"/><text x="930" y="100" text-anchor="middle" style="font-family:Bangers;font-size:30px;fill:#fff">5</text><text class="lbl" x="930" y="150" text-anchor="middle">Your why</text></a>
+      </g>
+    </svg>
+  </div>
+
+  <div class="how">
+    <p><b>Learn it once.</b>Stops 1 to 3 each prove one reframe in your body. A few minutes each.</p>
+    <p><b>Run it every time.</b>Stop 4 stitches them into one 15-minute routine you do before you record.</p>
+    <p><b>Anchor it.</b>Stop 5 is the reason you'll still be here in week three.</p>
+  </div>
+
+  <div class="next"><button class="btn red" data-go="worst">Start with stop 1</button></div>
+</section>
+
+<!-- ================= 1 WORST ONE ================= -->
+<section class="panel" id="worst" role="tabpanel">
+  <div class="stophead">
+    <div class="stopnum">1</div>
+    <div>
+      <h2>Your first one will be your worst one.</h2>
+      <p class="quote">So let's get it out of the way. Today.</p>
+    </div>
+  </div>
+
+  <div class="why-box">
+    <h3>What's actually happening</h3>
+    <p>You're waiting to feel ready. Ready doesn't come before the rep, it comes from the rep. Confidence is built from evidence, and the only way to collect evidence is to hit record while you're still a little nervous. Nervous and capable can sit in the same body.</p>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="shake"></div>
+    <div>
+      <span class="time">30 seconds</span>
+      <h3>Shake it loose</h3>
+      <p>Stand up. Shake your hands, then arms, then legs for about 20 seconds. Then stop completely and feel both feet on the floor for 10. You're not trying to get calm. You're burning off the extra so the rest can come with you.</p>
+      <div class="timer" data-seconds="30"><button class="btn ghost">Start 30s</button><output>0:30</output></div>
+    </div>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="music"></div>
+    <div>
+      <span class="time">1 minute</span>
+      <h3>Turn it on before you're ready</h3>
+      <p>Turn your camera on and look at yourself. Hit record a few seconds before you plan to speak. Let your nervous system settle into it: this is how I look, this is how I feel, this is how I sound.</p>
+      <p>Then move your eyes to the lens and say "Hello, this is practice" three times. Slower each time.</p>
+      <div class="tip">
+        <span class="hand">Why I hit record with the music on</span>
+        <p>Put your favorite song on before you start. It tells your nervous system this is a party, not a threat. Nothing to be scared of here. Then flirt with the lens a little.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="record"></div>
+    <div>
+      <span class="time">1 minute</span>
+      <h3>Record your worst one on purpose</h3>
+      <p>Hit record and finish this sentence out loud, one take:</p>
+      <p><b style="color:var(--ink)">"The thing most people get wrong about [your field] is…"</b></p>
+      <ul>
+        <li>One take. No restart.</li>
+        <li>Save it. Don't delete it for at least 30 minutes.</li>
+        <li>Don't rewatch yet. This rep is about finishing, not judging.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="commit" data-rep="worst">
+    <label><input type="checkbox"> I recorded my worst one.</label>
+    <span class="done">That's rep one. It only goes up from here.</span>
+  </div>
+  <div class="next"><button class="btn" data-go="letthem">Next: Let them</button></div>
+</section>
+
+<!-- ================= 2 LET THEM ================= -->
+<section class="panel" id="letthem" role="tabpanel">
+  <div class="stophead">
+    <div class="stopnum">2</div>
+    <div>
+      <h2>Let them.</h2>
+      <p class="quote">They get to be right for exactly as long as it takes you to get better.</p>
+    </div>
+  </div>
+
+  <div class="why-box">
+    <h3>Body first, then the story</h3>
+    <p>When judgment feels like danger, arguing with your thoughts won't win. Slow the body down first, then shrink the fear to its actual size. It's usually a lot smaller once you say it out loud.</p>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="breathe"></div>
+    <div>
+      <span class="time">1 minute</span>
+      <h3>Hand on heart. Sigh it out.</h3>
+      <p>Amped, frantic, performing? The words bounce right off, and they feel the unease. Calm reads as nothing to prove, nothing to hide. Nervous means bring the energy down, not up.</p>
+      <p>Hand on your heart. In through your nose for 4, hold, then one big sigh out. Follow the circle. If you get light-headed, go back to normal breathing.</p>
+      <div class="pacer">
+        <div class="orb" id="orb">Ready</div>
+        <div>
+          <button class="btn ghost" id="orbBtn">Start 6 breaths</button>
+          <p class="muted" id="orbCount" style="margin-top:10px">0 of 6</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="release"></div>
+    <div>
+      <span class="time">1 minute</span>
+      <h3>Feet, shoulders, jaw</h3>
+      <ol>
+        <li>Press both feet into the floor for five seconds. Let go.</li>
+        <li>Pull your shoulders up to your ears. Hold three seconds. Drop them.</li>
+        <li>Let your teeth come apart and your tongue rest. Hum softly for one breath.</li>
+      </ol>
+      <p class="muted">Tension in these three spots is what makes a voice sound tight on camera.</p>
+    </div>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="stamp"></div>
+    <div>
+      <span class="time">2 minutes</span>
+      <h3>Name it. Then let them.</h3>
+      <p>What's the worst thing someone could think when they see your video? Write it in plain words. Then stamp it.</p>
+      <div class="letthem">
+        <input class="field" id="fearIn" placeholder="Someone might think I…" aria-label="Someone might think I…">
+        <button class="btn red" id="fearBtn">Let them</button>
+      </div>
+      <ul class="stamps" id="stamps"></ul>
+      <div class="sayit">
+        <span class="hand">Now say it out loud. All of it.</span>
+        <p>Let them have their opinions. Let them judge.</p>
+        <p>I'm such a badass for stretching my boundaries.</p>
+        <p>I deserve the bigger things on the other side.</p>
+      </div>
+      <p class="muted" style="margin-top:16px">Notice who actually mocks people for trying. It's never the ones building something of their own. It's the ones on the sidelines who haven't started. Not the people you're here for.</p>
+    </div>
+  </div>
+
+  <div class="commit" data-rep="letthem">
+    <label><input type="checkbox"> I stamped a fear and said it out loud.</label>
+    <span class="done">They can have the opinion. You keep the future.</span>
+  </div>
+  <div class="next"><button class="btn" data-go="them">Next: It was never about you</button></div>
+</section>
+
+<!-- ================= 3 NOT ABOUT YOU ================= -->
+<section class="panel" id="them" role="tabpanel">
+  <div class="stophead">
+    <div class="stopnum">3</div>
+    <div>
+      <h2>It was never about you.</h2>
+      <p class="quote">The second you make it about them, the nerves have nowhere to live.</p>
+    </div>
+  </div>
+
+  <div class="why-box">
+    <h3>What yapping actually is</h3>
+    <p>Yapping is simply using what you know to change someone else's life. One shift, for one person, in that moment.</p>
+    <p>Nerves feed on self-monitoring: how do I look, how do I sound, what will they think. Every drill here moves your attention off your face and onto that one person.</p>
+  </div>
+
+  <div class="magnetic">
+    <h2>Becoming magnetic.</h2>
+    <p class="panq">Understanding the psychology of it set me free. Our voice has a personality, and it changes how people perceive us.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Psychology</h3><span class="sub">Make them feel seen</span>
+        <p>An accurate read of their inner world beats trying to sound smart. Name the feeling your ideal follower is in, and lead with what drives them: pain, fear, dreams, desires.</p>
+      </div>
+      <div class="pillar">
+        <h3>Structure</h3><span class="sub">Think clearly</span>
+        <p>One core idea per video, so you speak clearly. Say it in one sentence before you film.</p>
+      </div>
+      <div class="pillar">
+        <h3>Scripting</h3><span class="sub">You become the hook</span>
+        <p>This is where we start playing a different game than everybody else. Your yap card below is where it starts.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="eyes"></div>
+    <div>
+      <span class="time">1 minute</span>
+      <h3>Come back to the room</h3>
+      <p>Out loud, name:</p>
+      <ul>
+        <li>Three things you can see ("blue mug", "window", "my notebook")</li>
+        <li>Two things you can feel (chair under you, feet on the floor)</li>
+        <li>One sound in the room</li>
+      </ul>
+      <p class="muted">You're in a room. Not in an imagined courtroom full of critics.</p>
+    </div>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="one"></div>
+    <div>
+      <span class="time">3 minutes</span>
+      <h3>Build your yap card. Every time.</h3>
+      <p>Do this before every video you record. One person. What they're feeling. One core idea. Three bullets, no script.</p>
+      <div class="builder">
+        <label>Which yap is this?
+          <input class="field" id="yWhat" placeholder="The video you're about to record"></label>
+        <label>Who am I talking to? (one real person, by name)
+          <input class="field" id="yTo" placeholder="e.g. Maya, who's launching her first offer"></label>
+        <label>What are they feeling right now? (pain, fear, dream or desire)
+          <input class="field" id="yFeel" placeholder="e.g. scared she'll launch to crickets"></label>
+        <label>My one core idea, in one sentence
+          <input class="field" id="yIdea" placeholder="Say it out loud before you type it"></label>
+        <label>Three bullets I'll hit
+          <input class="field" id="yB1" placeholder="Bullet one">
+          <input class="field" id="yB2" placeholder="Bullet two">
+          <input class="field" id="yB3" placeholder="Bullet three"></label>
+      </div>
+      <button class="btn red" id="yBtn">Make my yap card</button>
+      <div class="yapcard" id="yapcard" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="slow">
+    <div class="words" aria-label="Slow down enough to let every word have its place."><span>Slow down</span><span>enough to let</span><span>every word</span><span>have its place.</span></div>
+    <p>Stop racing to the end of the sentence. Punch the words that matter and let them sit. Enunciate like the news anchors do, but stay natural. No weird news voice.</p>
+  </div>
+
+  <div class="drill">
+    <div class="art" data-art="lens"></div>
+    <div>
+      <span class="time">1 minute</span>
+      <h3>Record it to them</h3>
+      <ul>
+        <li>Music on. Camera on. Hit record a few seconds early and let yourself settle in.</li>
+        <li>Put their name, or a photo of someone who needs this, right beside the lens. Then lock in on it.</li>
+        <li>Open by naming what they're feeling. That's your hook.</li>
+        <li>Talk like it's a voice note to a friend. Three bullets. One take.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="commit" data-rep="them">
+    <label><input type="checkbox"> I recorded one for someone specific.</label>
+    <span class="done">That's what yapping is. You gave something away.</span>
+  </div>
+  <div class="next"><button class="btn" data-go="reset">Next: Put it all together</button></div>
+</section>
+
+<!-- ================= 4 RESET ================= -->
+<section class="panel" id="reset" role="tabpanel">
+  <div class="stophead">
+    <div class="stopnum">4</div>
+    <div>
+      <h2>The 15-minute reset.</h2>
+      <p class="quote">Run this before every recording for 7 days. That's how it becomes yours.</p>
+    </div>
+  </div>
+
+  <div class="runner" id="runner">
+    <div>
+      <div class="phase" id="rPhase">Step 1 of 8</div>
+      <h3 id="rTitle">Move</h3>
+      <p id="rText"></p>
+      <div class="clock" id="rClock">1:30</div>
+      <div class="ctrl">
+        <button class="btn" id="rPlay">Start the reset</button>
+        <button class="btn ghost" id="rPrev" aria-label="Previous step">Back</button>
+        <button class="btn ghost" id="rNext" aria-label="Next step">Skip ahead</button>
+      </div>
+    </div>
+    <div class="art" id="rArt"></div>
+    <div class="segs" id="rSegs" aria-hidden="true"></div>
+  </div>
+
+  <h3>The whole routine at a glance</h3>
+  <ol class="plan" id="plan"></ol>
+
+  <div class="freeze">
+    <h3>If you freeze mid-take</h3>
+    <p>Stop. Breathe out once. Look at your first bullet. Say "The main point is…" and keep going.</p>
+    <p>Rambling? Say "The short version is…" then one sentence. Done.</p>
+    <p>Racing? Slow down. Punch the words that matter and let them sit.</p>
+    <p>Made a mistake? "Let me say that more clearly." No apology needed.</p>
+  </div>
+
+  <div class="commit" data-rep="reset">
+    <label><input type="checkbox"> I ran the full 15 minutes and recorded.</label>
+    <span class="done">That's a routine, not a mood. Run it again tomorrow.</span>
+  </div>
+  <div class="next"><button class="btn" data-go="why">Last stop: Your why</button></div>
+</section>
+
+<!-- ================= 5 WHY ================= -->
+<section class="panel" id="why" role="tabpanel">
+  <div class="stophead">
+    <div class="stopnum">5</div>
+    <div>
+      <h2>None of this holds without your why.</h2>
+      <p class="quote">The moment it gets hard, and it will, the reframes alone won't keep you in the room.</p>
+    </div>
+  </div>
+
+  <div class="why-box">
+    <h3>This is what decides week three</h3>
+    <p>People don't quit because they're bad on camera. They quit because they forgot why they started. Take four minutes. Don't stop at your first answer. The real why usually lives one layer below the one that sounds good.</p>
+  </div>
+
+  <div class="dig">
+    <label>What do I want yapping to change in my life?
+      <textarea class="field" data-save="w1"></textarea></label>
+    <label class="deeper">But why does that matter?
+      <textarea class="field" data-save="w2"></textarea></label>
+    <label class="deeper2">But why does that matter?
+      <textarea class="field" data-save="w3"></textarea></label>
+    <label><span class="oneline">Now say it in one line.</span>
+      <input class="field" data-save="w4" placeholder="I'm doing this for…"></label>
+  </div>
+
+  <div class="panquote">
+    <blockquote>"I am doing this to provide freedom for me and my daughter."</blockquote>
+    <cite>Pan's why. It's what gets me in front of the camera on the days I'd rather not.</cite>
+  </div>
+
+  <div class="commit" data-rep="why">
+    <label><input type="checkbox"> I wrote my why in one line.</label>
+    <span class="done">Say it out loud before your next take.</span>
+  </div>
+
+  <div class="celebrate" id="celebrate">
+    <span class="hand">Five for five.</span>
+    <p style="margin:.5rem 0 0">You recorded, you let them, you spoke to someone, you ran the routine, and you know why. That's not someone with camera nerves anymore. That's a SuperYapper in practice.</p>
+  </div>
+
+  <div class="cta">
+    <div class="l">
+      <span class="hand" style="color:var(--mustard)">Here's the part nobody tells you</span>
+      <h2>One reset gets you through one video. Reps make you magnetic.</h2>
+      <p style="margin-top:14px">Nerves don't disappear because you found the right page. They fade because you keep showing up, rep after rep, until the camera feels like home.</p>
+      <p class="whatif">What if you had a judgment-free room where everybody is cheering for you?</p>
+      <p>A place to get your reps in with the most supportive people you'll find online. Live practice every other week, with people who know exactly how it feels because they're doing it too.</p>
+      <p class="whatif">What if it was only $33?</p>
+      <p>That's the founding member price. Less than what another six months of "I'll start next month" is already costing you. Would it be crazy to say no to that?</p>
+      <a class="btn red" id="joinBtn" href="#" target="_blank" rel="noopener">Grab the founding member offer</a>
+      <p style="margin-top:18px;color:#CFE3E0">This is what we do inside The SuperYapper Club. A practice ground for your voice, until the right opportunities find you.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Stuck on something this page didn't cover? Reply to the email I just sent you and tell me where you got stuck. I read every one.</p>
+  <p>© The SuperYapper Club · Take your work seriously. Don't take yourself too seriously.</p>
+</footer>
+
+<script>
+/* ======== EDIT THESE TWO LINKS ======== */
+const JOIN_URL = "https://www.skool.com/superyapper/about";
+/* Paste the form action URL from your Brevo embed code (…sibforms.com/serve/…) */
+const BREVO_FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFAOt8HYywSvvT3cniVmFqgb_18n_iz9vvZl2XN4E7GP05tNowaLC_7QB7Qi0EozrZ9Miy_m8xyzYbKV6ceoUbnzSpn-9_FAP20buaZlpu12l4_BB6O0trx4IO861vbW0maVCFnp471V3B-hnrfxnZExN-x18Xir1wVEmDmypl-RbapQnbqlYPfW2JgYfGx8YZuVh5VN7cu8j6DQ==";
+/* ===================================== */
+
+(function(){
+  const $ = (s,r=document)=>r.querySelector(s);
+  const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+  const store = {
+    get(k,d){try{const v=localStorage.getItem("sy_"+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+    set(k,v){try{localStorage.setItem("sy_"+k,JSON.stringify(v))}catch(e){}}
+  };
+  $("#joinBtn").href = JOIN_URL;
+
+  /* ---------- email gate ---------- */
+  function unlock(name){
+    document.body.classList.remove("locked");
+    if(name) $("#hello").textContent = "Let's go, " + name + ". Stop 1 is waiting.";
+    window.scrollTo({top:0});
+  }
+  const lead = store.get("lead", null);
+  if(lead && lead.email) unlock(lead.name);
+  $("#gateForm").addEventListener("submit", e=>{
+    e.preventDefault();
+    const name=$("#gName").value.trim(), email=$("#gEmail").value.trim(), err=$("#gErr");
+    if(!name){err.textContent="Add your first name so I know who I'm talking to.";$("#gName").focus();return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){err.textContent="That email doesn't look right. Check it and try again.";$("#gEmail").focus();return}
+    err.textContent="";
+    if(!$("#gTrap").value && BREVO_FORM_ACTION){
+      const body=new URLSearchParams({FIRSTNAME:name, EMAIL:email, email_address_check:"", locale:"en"});
+      try{ fetch(BREVO_FORM_ACTION,{method:"POST",mode:"no-cors",body}).catch(()=>{}); }catch(x){}
+    }
+    store.set("lead",{name,email});
+    unlock(name);
+  });
+
+  /* ---------- ink doodles ---------- */
+  const A = {
+    shake:`<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <circle class="ink" cx="100" cy="45" r="18"/>
+      <path class="ink" d="M100 63 L100 125 M100 125 L82 175 M100 125 L118 175 M100 80 L62 100 M100 80 L138 100"/>
+      <path class="ink ink-red" d="M48 88 l-8 -6 M46 102 l-10 0 M50 116 l-8 6 M152 88 l8 -6 M154 102 l10 0 M150 116 l8 6 M72 178 l-8 4 M128 178 l8 4"/>
+      <path class="ink ink-teal" d="M50 188 L150 188"/></g></svg>`,
+    lens:`<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <rect class="ink" x="55" y="30" width="80" height="145" rx="14"/>
+      <circle class="ink ink-red" cx="95" cy="48" r="7"/>
+      <path class="ink" d="M140 70 q30 -6 44 10 q10 16 -6 26 l-30 2 l-8 10 l0 -12"/>
+      <text x="152" y="95" style="font-family:'Permanent Marker';font-size:15px;fill:var(--red)">hi!</text></g></svg>`,
+    record:`<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <circle class="ink" cx="100" cy="100" r="62"/>
+      <circle class="fill-red" cx="100" cy="100" r="30"/>
+      <path class="ink ink-mus" d="M30 40 l14 12 M170 40 l-14 12 M100 20 l0 14"/>
+      <text x="58" y="190" style="font-family:'Permanent Marker';font-size:17px;fill:var(--teal)">one take</text></g></svg>`,
+    breathe:`<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <circle class="ink" cx="100" cy="70" r="22"/>
+      <path class="ink" d="M92 64 l0 2 M108 64 l0 2 M94 80 q6 3 12 0"/>
+      <path class="ink" d="M70 175 q0 -70 30 -80 q30 10 30 80"/>
+      <path class="ink ink-teal" d="M40 60 q-20 10 0 22 M160 60 q20 10 0 22"/>
+      <text x="22" y="130" style="font-family:'Permanent Marker';font-size:16px;fill:var(--teal)">in 4</text>
+      <path class="ink ink-red" d="M88 118 q-6 -8 0 -12 q6 -3 8 4 q2 -7 8 -4 q6 4 0 12 l-8 8 z"/>
+      <text x="136" y="130" style="font-family:'Permanent Marker';font-size:16px;fill:var(--red)">sigh out</text></g></svg>`,
+    release:`<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <circle class="ink" cx="100" cy="48" r="20"/>
+      <path class="ink" d="M92 58 q8 6 16 0"/>
+      <path class="ink" d="M55 95 q45 -20 90 0 M100 70 L100 150 M100 150 L80 185 M100 150 L120 185"/>
+      <path class="ink ink-red" d="M52 70 l0 18 l-6 -6 M52 88 l6 -6 M148 70 l0 18 l-6 -6 M148 88 l6 -6"/>
+      <path class="ink ink-teal" d="M60 190 L140 190"/></g></svg>`,
+    stamp:`<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <rect class="ink ink-red" x="30" y="70" width="140" height="60" transform="rotate(-8 100 100)"/>
+      <text x="44" y="118" transform="rotate(-8 100 100)" style="font-family:Bangers;font-size:38px;fill:var(--red)">LET THEM</text>
+      <path class="ink" d="M60 160 q40 14 80 0"/></g></svg>`,
+    eyes:`<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <path class="ink" d="M30 100 q70 -60 140 0 q-70 60 -140 0"/>
+      <circle class="ink ink-teal" cx="100" cy="100" r="20"/>
+      <circle class="fill-mus" cx="100" cy="100" r="7"/>
+      <text x="40" y="175" style="font-family:'Permanent Marker';font-size:16px;fill:var(--red)">3 · 2 · 1</text></g></svg>`,
+    one:`<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <circle class="ink" cx="55" cy="80" r="16"/><path class="ink" d="M55 96 L55 150 M40 115 L70 115"/>
+      <circle class="ink ink-teal" cx="150" cy="80" r="16"/><path class="ink ink-teal" d="M150 96 L150 150 M135 115 L165 115"/>
+      <path class="ink ink-red" d="M78 72 q24 -20 48 0 l-8 -2 M126 72 l-2 -8"/>
+      <path class="ink ink-mus" d="M150 45 l0 -12 M138 50 l-8 -8 M162 50 l8 -8"/></g></svg>`,
+    move:null, card:null, save:null
+  };
+  A.move = A.shake;
+  A.music = `<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <rect class="ink" x="40" y="35" width="76" height="140" rx="14"/>
+      <circle class="ink ink-red" cx="78" cy="52" r="7"/>
+      <path class="ink ink-teal" d="M140 70 L140 125 M140 70 L178 60 L178 115"/>
+      <ellipse class="fill-mus" cx="132" cy="127" rx="10" ry="7"/><ellipse class="fill-mus" cx="170" cy="117" rx="10" ry="7"/>
+      <text x="126" y="175" style="font-family:'Permanent Marker';font-size:16px;fill:var(--red)">party!</text></g></svg>`;
+  A.card = `<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <rect class="ink" x="40" y="40" width="120" height="120" transform="rotate(-4 100 100)"/>
+      <path class="ink ink-red" d="M60 80 L140 76 M62 105 l6 0 M78 104 L140 101 M62 128 l6 0 M78 127 L130 125"/></g></svg>`;
+  A.save = `<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <path class="ink ink-mus" d="M40 105 L85 150 L165 55"/>
+      <path class="ink" d="M30 185 L170 185"/></g></svg>`;
+  $$("[data-art]").forEach(el=>{el.innerHTML = A[el.dataset.art]||""; el.setAttribute("aria-hidden","true")});
+
+  /* ---------- tabs ---------- */
+  const ids = ["start","worst","letthem","them","reset","why"];
+  function show(id,push){
+    if(!ids.includes(id)) id="start";
+    $$("section.panel").forEach(p=>p.classList.toggle("active",p.id===id));
+    $$(".stop").forEach(b=>b.setAttribute("aria-selected",b.dataset.go===id?"true":"false"));
+    const active=$(`.stop[data-go="${id}"]`); if(active) active.scrollIntoView({block:"nearest",inline:"center"});
+    if(push!==false){ try{history.replaceState(null,"","#"+id)}catch(e){} }
+    window.scrollTo({top:0});
+  }
+  document.addEventListener("click",e=>{
+    const t=e.target.closest("[data-go]"); if(!t) return;
+    e.preventDefault(); show(t.dataset.go);
+  });
+  show((location.hash||"#start").slice(1),false);
+
+  /* ---------- reps ---------- */
+  const repKeys=["worst","letthem","them","reset","why"];
+  const reps = store.get("reps",{});
+  const dots=$("#repDots"); repKeys.forEach(()=>{const d=document.createElement("span");d.className="dot";dots.appendChild(d)});
+  function renderReps(){
+    const n=repKeys.filter(k=>reps[k]).length;
+    $("#repText").textContent=`Reps ${n}/5`;
+    $$(".dot",dots).forEach((d,i)=>d.classList.toggle("on",i<n));
+    repKeys.forEach(k=>{const t=$(`[data-tick="${k}"]`); if(t) t.textContent=reps[k]?"✓":""});
+    $("#celebrate").classList.toggle("show",n===5);
+  }
+  $$(".commit").forEach(c=>{
+    const k=c.dataset.rep, box=$("input",c);
+    box.checked=!!reps[k]; c.classList.toggle("is-done",box.checked);
+    box.addEventListener("change",()=>{reps[k]=box.checked;store.set("reps",reps);c.classList.toggle("is-done",box.checked);renderReps()});
+  });
+  renderReps();
+
+  /* ---------- simple timers ---------- */
+  const fmt=s=>`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`;
+  $$(".timer").forEach(t=>{
+    const total=+t.dataset.seconds, out=$("output",t), b=$("button",t); let left=total, iv=null;
+    b.addEventListener("click",()=>{
+      if(iv){clearInterval(iv);iv=null;b.textContent="Resume";return}
+      if(left<=0) left=total;
+      b.textContent="Pause";
+      iv=setInterval(()=>{left--;out.textContent=fmt(left);if(left<=0){clearInterval(iv);iv=null;b.textContent="Again";out.textContent="Done"}},1000);
+    });
+  });
+
+  /* ---------- breathing pacer ---------- */
+  const orb=$("#orb"), orbBtn=$("#orbBtn"), orbCount=$("#orbCount"); let breathing=false, bt=[];
+  function stopBreath(){bt.forEach(clearTimeout);bt=[];breathing=false;orb.classList.remove("out");orb.style.transform="scale(.6)";orb.textContent="Ready";orbBtn.textContent="Start 6 breaths"}
+  orbBtn.addEventListener("click",()=>{
+    if(breathing){stopBreath();return}
+    breathing=true; orbBtn.textContent="Stop";
+    let i=0;
+    (function cycle(){
+      if(i>=6){stopBreath();orb.textContent="Nice";orbCount.textContent="6 of 6. Notice what shifted.";return}
+      orb.classList.remove("out"); orb.textContent="In"; orb.style.transform="scale(1)";
+      bt.push(setTimeout(()=>{orb.textContent="Hold";
+        bt.push(setTimeout(()=>{orb.classList.add("out");orb.textContent="Sigh";orb.style.transform="scale(.6)";
+          bt.push(setTimeout(()=>{i++;orbCount.textContent=`${i} of 6`;cycle()},6000))},2000))},4000));
+    })();
+  });
+
+  /* ---------- let them stamps ---------- */
+  const stamps=$("#stamps"), fearIn=$("#fearIn"); const fears=store.get("fears",[]);
+  function addStamp(txt){
+    const li=document.createElement("li");
+    const s=document.createElement("span"); s.className="fear"; s.textContent=txt;
+    const st=document.createElement("span"); st.className="stamp"; st.textContent="Let them";
+    li.append(s,st); stamps.appendChild(li);
+  }
+  fears.forEach(addStamp);
+  function submitFear(){
+    let v=fearIn.value.trim(); if(!v) {fearIn.focus();return}
+    if(!/^someone/i.test(v)) v="Someone might think I "+v.replace(/^i\s+/i,"");
+    fears.push(v); store.set("fears",fears); addStamp(v); fearIn.value="";
+  }
+  $("#fearBtn").addEventListener("click",submitFear);
+  fearIn.addEventListener("keydown",e=>{if(e.key==="Enter")submitFear()});
+
+  /* ---------- yap card ---------- */
+  const yf=["yWhat","yTo","yFeel","yIdea","yB1","yB2","yB3"], yd=store.get("yap",{});
+  yf.forEach(id=>{const el=$("#"+id); if(yd[id]) el.value=yd[id]; el.addEventListener("input",()=>{yd[id]=el.value;store.set("yap",yd)})});
+  function renderCard(){
+    const v=id=>($("#"+id).value||"").trim();
+    if(!v("yTo")||!v("yIdea")){ $("#yapcard").classList.add("show"); $("#yapcard").textContent="Add who you're talking to and your one core idea. That's the minimum card."; return }
+    const card=$("#yapcard"); card.innerHTML="";
+    const to=document.createElement("div"); to.className="to"; to.textContent=(v("yWhat")?v("yWhat")+" · ":"")+"for "+v("yTo");
+    const big=document.createElement("div"); big.className="big"; big.textContent=v("yIdea");
+    const op=document.createElement("div"); op.className="open"; if(v("yFeel")) op.textContent="Open by naming it: "+v("yFeel");
+    const ul=document.createElement("ul"); ["yB1","yB2","yB3"].forEach(id=>{if(v(id)){const li=document.createElement("li");li.textContent=v(id);ul.appendChild(li)}});
+    const f=document.createElement("div"); f.className="foot"; f.textContent="Music on · Lock in · Slow down · One take";
+    card.append(to,big,op,ul,f); card.classList.add("show");
+  }
+  $("#yBtn").addEventListener("click",renderCard);
+  if(yd.yTo&&yd.yIdea) renderCard();
+
+  /* ---------- why fields ---------- */
+  $$("[data-save]").forEach(el=>{const k="why_"+el.dataset.save; el.value=store.get(k,""); el.addEventListener("input",()=>store.set(k,el.value))});
+
+  /* ---------- 15-minute runner ---------- */
+  const steps=[
+    {t:"Move",s:90,art:"shake",x:"Shake out hands, arms and legs, then walk around the room at an easy pace. Burn off the extra charge. Arrive at your seat, not out of breath."},
+    {t:"Hand on heart, sigh it out",s:120,art:"breathe",x:"Hand on your heart. In for 4, hold, big sigh out. Energy comes down, not up. Calm reads as nothing to prove, nothing to hide."},
+    {t:"Feet, shoulders, jaw",s:90,art:"release",x:"Press your feet down and let go. Shoulders up to your ears, then drop. Teeth apart, tongue resting. Hum softly on two exhales."},
+    {t:"Come back to the room",s:60,art:"eyes",x:"Name three things you see, two things you feel, one sound. Say where you are and what you're about to record."},
+    {t:"Say it out loud",s:60,art:"stamp",x:"\"My first one can be my worst one. Let them have their opinions. Let them judge. I'm such a badass for stretching my boundaries. I deserve the bigger things on the other side. This is for [their name].\""},
+    {t:"Build your yap card",s:180,art:"card",x:"Pick the video you're about to record. One person, what they're feeling right now, your one core idea in one sentence, three bullets. Use the card builder in stop 3."},
+    {t:"Music on. Lock in. Record.",s:180,art:"music",x:"Favorite song on, camera on, hit record a few seconds early. Settle in, then lock onto the lens and flirt with it. Open by naming their feeling. Slow down and let every word have its place. One take."},
+    {t:"Close the loop",s:120,art:"save",x:"Save it. Don't delete for 30 minutes. Don't rewatch yet. Write down one thing that worked. You showed up. That's the rep."}
+  ];
+  const plan=$("#plan"); let acc=0;
+  steps.forEach(st=>{const li=document.createElement("li"); li.innerHTML=`<span class="m">${fmt(acc)}</span><span><b></b><br><span class="d"></span></span>`; $("b",li).textContent=st.t; $(".d",li).textContent=st.x; plan.appendChild(li); acc+=st.s});
+  const segs=$("#rSegs");
+  steps.forEach(st=>{const d=document.createElement("div");d.className="seg";d.style.flex=st.s;d.innerHTML="<i></i>";segs.appendChild(d)});
+  let cur=0,left=steps[0].s,run=null;
+  function paint(){
+    const st=steps[cur];
+    $("#rPhase").textContent=`Step ${cur+1} of ${steps.length}`;
+    $("#rTitle").textContent=st.t; $("#rText").textContent=st.x;
+    $("#rClock").textContent=fmt(left); $("#rArt").innerHTML=A[st.art]||"";
+    $$(".seg i",segs).forEach((b,i)=>b.style.width=i<cur?"100%":i>cur?"0%":((st.s-left)/st.s*100)+"%");
+  }
+  function go(i){cur=Math.max(0,Math.min(steps.length-1,i));left=steps[cur].s;paint()}
+  function tick(){
+    left--;
+    if(left<0){
+      if(cur<steps.length-1){go(cur+1)}
+      else{clearInterval(run);run=null;left=0;$("#rPlay").textContent="Run it again";$("#rTitle").textContent="Done. That's the routine.";$("#rText").textContent="Tick the box below. Then do it again tomorrow.";$("#rClock").textContent="15:00";$$(".seg i",segs).forEach(b=>b.style.width="100%");return}
+    }
+    paint();
+  }
+  $("#rPlay").addEventListener("click",()=>{
+    if(run){clearInterval(run);run=null;$("#rPlay").textContent="Resume";return}
+    if($("#rPlay").textContent==="Run it again") go(0);
+    $("#rPlay").textContent="Pause"; run=setInterval(tick,1000);
+  });
+  $("#rNext").addEventListener("click",()=>go(cur+1));
+  $("#rPrev").addEventListener("click",()=>go(cur-1));
+  paint();
+})();
+</script>
+</body>
+</html>
