@@ -57,9 +57,9 @@ button{font:inherit;cursor:pointer}
 .hand{font-family:var(--hand);color:var(--red);font-size:1.15rem;line-height:1.3;display:inline-block;transform:rotate(-3deg)}
 
 /* ---------- header ---------- */
-.masthead{background:var(--red);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.masthead{background:var(--red);color:#fff;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .wordmark{font-family:var(--display);font-size:1.6rem;letter-spacing:.04em;transform:skew(-8deg);line-height:1;display:flex;align-items:center;gap:10px}
-.wordmark svg{width:34px;height:34px;flex:none;transform:skew(8deg)}
+.wordmark .logo{width:52px;height:52px;flex:none;transform:skew(8deg) rotate(-4deg);border-radius:10px;box-shadow:0 0 0 3px #fff,4px 4px 0 3px rgba(0,0,0,.25)}
 .reps{font-weight:900;font-size:.95rem;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .reps .dots{display:flex;gap:4px}
 .reps .dot{width:12px;height:12px;border:2px solid #fff;border-radius:50%;transition:background .3s}
@@ -255,6 +255,48 @@ body.locked #gate{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-i
 .inside b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--red);letter-spacing:.03em;margin-right:8px}
 @media (max-width:760px){body.locked #gate{grid-template-columns:1fr}}
 
+/* plain-language system */
+.glossary{margin:56px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--rule);border-bottom:3px solid var(--rule)}
+.glossary h3{grid-column:1/-1;font-size:1.5rem;padding:16px 0 4px}
+.glossary div{padding:12px 18px 18px 0}
+.glossary div+div{padding-left:18px;border-left:2px dashed var(--muted)}
+.glossary h3 + div{padding-left:0;border-left:0}
+.glossary b{display:block;font-family:var(--display);font-weight:400;font-size:1.6rem;color:var(--red);letter-spacing:.03em;line-height:1}
+.glossary p{margin:.35rem 0 0;font-size:.98rem}
+@media (max-width:760px){.glossary{grid-template-columns:1fr 1fr}.glossary div:nth-of-type(3){padding-left:0;border-left:0}}
+.shift{display:grid;grid-template-columns:1fr auto 1.25fr;gap:20px;align-items:center;margin:0 0 18px;max-width:920px}
+.shift .lab{display:block;font-weight:900;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.shift .old p{margin:0;font-family:var(--hand);font-size:1.25rem;line-height:1.3;color:var(--muted);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px}
+.shift .arrow svg{width:64px;height:40px}
+.shift .new{background:var(--mustard);color:#000;padding:16px 20px;transform:rotate(-1deg)}
+.shift .new .lab{color:#000;opacity:.7}
+.shift .new p{margin:0;font-family:var(--display);font-size:clamp(1.5rem,2.8vw,2rem);line-height:1.08;letter-spacing:.02em}
+@media (max-width:760px){.shift{grid-template-columns:1fr}.shift .arrow svg{transform:rotate(90deg);width:40px}}
+.helps{max-width:760px;margin:0 0 40px;font-size:1.05rem}
+.helps b{color:var(--red)}
+.dothis{font-size:clamp(1.8rem,3.4vw,2.4rem);margin:0 0 4px;display:inline-block}
+.dothis::after{content:"";display:block;height:6px;margin-top:2px;background:var(--red);border-radius:3px;transform:rotate(-1deg)}
+.drill .time b{font-family:var(--display);font-weight:400;font-size:1.25rem;color:var(--ink);margin-right:6px;letter-spacing:.03em}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:3px solid var(--rule);margin:8px 0 26px}
+.steps3 > div{padding:22px}
+.steps3 > div+div{border-left:3px solid var(--rule)}
+.steps3 .big{font-family:var(--display);font-size:3.4rem;line-height:.8;color:var(--red);-webkit-text-stroke:1.5px var(--ink)}
+.steps3 h3{font-size:1.6rem;margin:.4rem 0 .4rem}
+.steps3 p{font-size:1rem;margin:0 0 .5rem}
+.steps3 .eg{font-family:var(--hand);color:var(--teal);font-size:1rem;line-height:1.35;display:block}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}.steps3 > div+div{border-left:0;border-top:3px solid var(--rule)}}
+.pannote{max-width:680px;margin:0 0 40px;font-family:var(--hand);color:var(--teal);font-size:1.2rem;line-height:1.4}
+.pannote cite{display:block;font-style:normal;color:var(--red);font-size:1rem;margin-top:4px}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+@media (max-width:760px){.cards2{grid-template-columns:1fr}}
+.yapcard.example{display:block;transform:rotate(1.4deg);margin-top:0;background:var(--paper);color:var(--text);border:3px dashed var(--ink)}
+.yapcard .tag{font-family:var(--display);font-size:1rem;letter-spacing:.08em;background:var(--red);color:#fff;padding:2px 10px;display:inline-block;margin-bottom:8px}
+.chain{max-width:720px;margin:0 0 30px;padding:20px 24px;background:var(--panel)}
+.chain .lab{display:block;font-weight:900;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.chain p{margin:.2rem 0;font-family:var(--hand);font-size:1.1rem;color:var(--teal)}
+.chain p:nth-child(3){padding-left:22px}.chain p:nth-child(4){padding-left:44px}
+.chain p.line{padding-left:0;font-family:var(--display);color:var(--ink);font-size:1.5rem;margin-top:.6rem;letter-spacing:.02em}
+
 /* why */
 .dig{max-width:680px;display:grid;gap:18px;margin-top:10px}
 .dig label{display:grid;gap:8px;font-weight:900;color:var(--ink)}
@@ -292,7 +334,7 @@ footer p{max-width:720px}
 
 <header class="masthead">
   <div class="wordmark" aria-label="The SuperYapper Club">
-    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#fff" stroke-width="3"/><path d="M22 6 L13 22 H20 L17 34 L28 16 H21 Z" fill="#fff"/></svg>
+    <img class="logo" src="data:image/png;base64,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" alt="" width="52" height="52">
     The SuperYapper Club
   </div>
   <div class="reps" aria-live="polite"><span id="repText">Reps 0/5</span><span class="dots" id="repDots"></span></div>
@@ -304,9 +346,9 @@ footer p{max-width:720px}
     <h1>The reset I run before every single video.</h1>
     <p class="lede">Your body treats the camera like a threat. This walks it back, stop by stop, until you're calm enough to press record and actually sound like yourself.</p>
     <ul class="inside">
-      <li><b>Worst one</b>Why your first video should be bad, on purpose</li>
-      <li><b>Let them</b>The stamp that shrinks judgment to its real size</li>
-      <li><b>Not about you</b>The yap card that turns you into the hook</li>
+      <li><b>Worst one</b>Record your first video in 3 minutes. It's supposed to be bad.</li>
+      <li><b>Let them</b>Calm your body and shrink the fear of being judged</li>
+      <li><b>Not about you</b>A 3-question card so you never go blank on camera</li>
       <li><b>15-min reset</b>The full routine, timed, step by step</li>
     </ul>
   </div>
@@ -348,6 +390,14 @@ footer p{max-width:720px}
     <p>You might be thinking this is another breathing worksheet you'll bookmark and never open. Or that you'll start once you have more results, more testimonials, more time. That's the exact voice we're here to outgrow. Perfection is procrastination in a nicer outfit. Six months go by and we're still talking about doing it.</p>
   </div>
 
+  <div class="glossary">
+    <h3>Four words you'll see on this page</h3>
+    <div><b>Yap</b><p>A short video where you share one thing you know, like you're talking to a friend.</p></div>
+    <div><b>Rep</b><p>One recorded video. Good or bad, it counts.</p></div>
+    <div><b>Hook</b><p>Your first sentence. The one that makes someone stop scrolling.</p></div>
+    <div><b>Yap card</b><p>Three quick answers you glance at while recording, so you never go blank.</p></div>
+  </div>
+
   <div class="three" aria-label="The three things to remember">
     <button class="frame f1" data-go="worst">
       <span class="n">One</span>
@@ -359,13 +409,13 @@ footer p{max-width:720px}
       <span class="n">Two</span>
       <span class="t">Let them.</span>
       <span class="d">They can have their opinion. They don't get control of your future.</span>
-      <span class="go">Calm the body, shrink the judgment</span>
+      <span class="go">Calm your body in 4 minutes</span>
     </button>
     <button class="frame f3" data-go="them">
       <span class="n">Three</span>
       <span class="t">It was never about you.</span>
       <span class="d">Make it about them and the nerves have nowhere to live.</span>
-      <span class="go">Point your attention outward</span>
+      <span class="go">Learn exactly what to say</span>
     </button>
   </div>
 
@@ -377,8 +427,8 @@ footer p{max-width:720px}
     </div>
     <div>
       <p>You're not getting on camera to prove something. You're sharing something you know. You're giving. You're connecting. And you're having fun in the process.</p>
-      <p>Here's why it works: as humans, we naturally mirror each other. An anxious person makes the room more anxious, not calm or safe. When you're locked in, cozy and grounded, the person on the other side feels that too.</p>
-      <p style="margin:0"><b>So flirt with the camera. Lock in. Let your personality out.</b> Come at it this way and you don't have to work so hard to look confident. You're just being yourself.</p>
+      <p><b>Why it works:</b> people copy the energy they see. If you're anxious on camera, the person watching feels anxious too. If you're relaxed and grounded, they relax with you.</p>
+      <p style="margin:0"><b>So try this:</b> look into the lens like you're talking to someone you like. Relax your face. Let yourself smile. Be a little playful. You don't have to work so hard to look confident. You're just being yourself.</p>
     </div>
   </div>
 
@@ -399,9 +449,9 @@ footer p{max-width:720px}
   </div>
 
   <div class="how">
-    <p><b>Learn it once.</b>Stops 1 to 3 each prove one reframe in your body. A few minutes each.</p>
-    <p><b>Run it every time.</b>Stop 4 stitches them into one 15-minute routine you do before you record.</p>
-    <p><b>Anchor it.</b>Stop 5 is the reason you'll still be here in week three.</p>
+    <p><b>Learn it once.</b>Stops 1 to 3: one mindset shift and a short exercise each.</p>
+    <p><b>Run it every time.</b>Stop 4 puts it all into one timed 15-minute routine you do before you record.</p>
+    <p><b>Anchor it.</b>Stop 5 helps you find the reason you'll keep going when it gets hard.</p>
   </div>
 
   <div class="next"><button class="btn red" data-go="worst">Start with stop 1</button></div>
@@ -417,17 +467,22 @@ footer p{max-width:720px}
     </div>
   </div>
 
-  <div class="why-box">
-    <h3>What's actually happening</h3>
-    <p>You're waiting to feel ready. Ready doesn't come before the rep, it comes from the rep. Confidence is built from evidence, and the only way to collect evidence is to hit record while you're still a little nervous. Nervous and capable can sit in the same body.</p>
+  <div class="shift">
+    <div class="old"><span class="lab">Instead of thinking</span><p>"I'll post when I feel ready."</p></div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 64 40"><g filter="url(#rough)"><path class="ink ink-red" stroke-width="4" d="M4 22 Q30 12 56 20 M44 8 L58 20 L44 32"/></g></svg></div>
+    <div class="new"><span class="lab">Think this</span><p>"Ready comes from doing it. My first one is supposed to be bad."</p></div>
   </div>
+  <p class="helps"><b>Why it helps:</b> Nobody feels ready before their first video. Confidence shows up after you've done something a few times, not before. Nervous and capable can live in the same body.</p>
+
+  <h3 class="dothis">Do this</h3>
 
   <div class="drill">
     <div class="art" data-art="shake"></div>
     <div>
-      <span class="time">30 seconds</span>
+      <span class="time"><b>Step 1</b> 30 seconds</span>
       <h3>Shake it loose</h3>
-      <p>Stand up. Shake your hands, then arms, then legs for about 20 seconds. Then stop completely and feel both feet on the floor for 10. You're not trying to get calm. You're burning off the extra so the rest can come with you.</p>
+      <p>Stand up. Shake your hands, then your arms, then your legs for about 20 seconds. Then stand still and feel both feet on the floor for 10.</p>
+      <p class="muted">You're not trying to get calm. You're burning off the extra nervous energy.</p>
       <div class="timer" data-seconds="30"><button class="btn ghost">Start 30s</button><output>0:30</output></div>
     </div>
   </div>
@@ -435,13 +490,13 @@ footer p{max-width:720px}
   <div class="drill">
     <div class="art" data-art="music"></div>
     <div>
-      <span class="time">1 minute</span>
-      <h3>Turn it on before you're ready</h3>
-      <p>Turn your camera on and look at yourself. Hit record a few seconds before you plan to speak. Let your nervous system settle into it: this is how I look, this is how I feel, this is how I sound.</p>
-      <p>Then move your eyes to the lens and say "Hello, this is practice" three times. Slower each time.</p>
+      <span class="time"><b>Step 2</b> 1 minute</span>
+      <h3>Turn the camera on before you're ready</h3>
+      <p>Put your favorite song on. Turn your camera on and look at yourself for a few seconds. Hit record a little before you plan to speak.</p>
+      <p>Then look into the lens (the little circle, not your face on the screen) and say "Hello, this is practice" three times. Slower each time.</p>
       <div class="tip">
         <span class="hand">Why I hit record with the music on</span>
-        <p>Put your favorite song on before you start. It tells your nervous system this is a party, not a threat. Nothing to be scared of here. Then flirt with the lens a little.</p>
+        <p>Music tells your body this is a party, not a threat. And each time you look at the camera and nothing bad happens, your body learns it's safe.</p>
       </div>
     </div>
   </div>
@@ -449,15 +504,15 @@ footer p{max-width:720px}
   <div class="drill">
     <div class="art" data-art="record"></div>
     <div>
-      <span class="time">1 minute</span>
-      <h3>Record your worst one on purpose</h3>
-      <p>Hit record and finish this sentence out loud, one take:</p>
+      <span class="time"><b>Step 3</b> 1 minute</span>
+      <h3>Record your worst one, on purpose</h3>
+      <p>Hit record and finish this sentence out loud:</p>
       <p><b style="color:var(--ink)">"The thing most people get wrong about [your field] is…"</b></p>
-      <ul>
-        <li>One take. No restart.</li>
+      <ol>
+        <li>One take. Don't restart.</li>
         <li>Save it. Don't delete it for at least 30 minutes.</li>
-        <li>Don't rewatch yet. This rep is about finishing, not judging.</li>
-      </ul>
+        <li>Don't rewatch it yet. Today is about finishing, not judging.</li>
+      </ol>
     </div>
   </div>
 
@@ -478,18 +533,22 @@ footer p{max-width:720px}
     </div>
   </div>
 
-  <div class="why-box">
-    <h3>Body first, then the story</h3>
-    <p>When judgment feels like danger, arguing with your thoughts won't win. Slow the body down first, then shrink the fear to its actual size. It's usually a lot smaller once you say it out loud.</p>
+  <div class="shift">
+    <div class="old"><span class="lab">Instead of thinking</span><p>"I need everyone to like it."</p></div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 64 40"><g filter="url(#rough)"><path class="ink ink-red" stroke-width="4" d="M4 22 Q30 12 56 20 M44 8 L58 20 L44 32"/></g></svg></div>
+    <div class="new"><span class="lab">Think this</span><p>"They can have their opinion. My job is to show up."</p></div>
   </div>
+  <p class="helps"><b>Why it helps:</b> Your body treats being judged like being in danger. So first you calm your body down. Then the fear gets smaller, and it shrinks even more once you say it out loud.</p>
+
+  <h3 class="dothis">Do this</h3>
 
   <div class="drill">
     <div class="art" data-art="breathe"></div>
     <div>
-      <span class="time">1 minute</span>
+      <span class="time"><b>Step 1</b> 1 minute</span>
       <h3>Hand on heart. Sigh it out.</h3>
-      <p>Amped, frantic, performing? The words bounce right off, and they feel the unease. Calm reads as nothing to prove, nothing to hide. Nervous means bring the energy down, not up.</p>
-      <p>Hand on your heart. In through your nose for 4, hold, then one big sigh out. Follow the circle. If you get light-headed, go back to normal breathing.</p>
+      <p>Put your hand on your heart. Breathe in through your nose for 4. Hold for a moment. Then let out one big sigh. Follow the circle for 6 breaths.</p>
+      <p class="muted">Nervous means bring your energy down, not up. When you're calm, people see someone with nothing to prove and nothing to hide. If you feel light-headed, go back to normal breathing.</p>
       <div class="pacer">
         <div class="orb" id="orb">Ready</div>
         <div>
@@ -503,40 +562,40 @@ footer p{max-width:720px}
   <div class="drill">
     <div class="art" data-art="release"></div>
     <div>
-      <span class="time">1 minute</span>
-      <h3>Feet, shoulders, jaw</h3>
+      <span class="time"><b>Step 2</b> 1 minute</span>
+      <h3>Relax your feet, shoulders and jaw</h3>
       <ol>
         <li>Press both feet into the floor for five seconds. Let go.</li>
         <li>Pull your shoulders up to your ears. Hold three seconds. Drop them.</li>
         <li>Let your teeth come apart and your tongue rest. Hum softly for one breath.</li>
       </ol>
-      <p class="muted">Tension in these three spots is what makes a voice sound tight on camera.</p>
+      <p class="muted">Tension in these three spots is what makes your voice sound tight on camera.</p>
     </div>
   </div>
 
   <div class="drill">
     <div class="art" data-art="stamp"></div>
     <div>
-      <span class="time">2 minutes</span>
-      <h3>Name it. Then let them.</h3>
-      <p>What's the worst thing someone could think when they see your video? Write it in plain words. Then stamp it.</p>
+      <span class="time"><b>Step 3</b> 2 minutes</span>
+      <h3>Name the fear. Then let them.</h3>
+      <p>Type the worst thing someone could think about you when they see your video. Press the button. Watch it get crossed out.</p>
       <div class="letthem">
         <input class="field" id="fearIn" placeholder="Someone might think I…" aria-label="Someone might think I…">
         <button class="btn red" id="fearBtn">Let them</button>
       </div>
       <ul class="stamps" id="stamps"></ul>
       <div class="sayit">
-        <span class="hand">Now say it out loud. All of it.</span>
+        <span class="hand">Now say this out loud. All of it.</span>
         <p>Let them have their opinions. Let them judge.</p>
         <p>I'm such a badass for stretching my boundaries.</p>
         <p>I deserve the bigger things on the other side.</p>
       </div>
-      <p class="muted" style="margin-top:16px">Notice who actually mocks people for trying. It's never the ones building something of their own. It's the ones on the sidelines who haven't started. Not the people you're here for.</p>
+      <p class="muted" style="margin-top:16px">Notice who actually mocks people for trying. It's never the people building something of their own. It's the ones on the sidelines who haven't started.</p>
     </div>
   </div>
 
   <div class="commit" data-rep="letthem">
-    <label><input type="checkbox"> I stamped a fear and said it out loud.</label>
+    <label><input type="checkbox"> I named a fear and said it out loud.</label>
     <span class="done">They can have the opinion. You keep the future.</span>
   </div>
   <div class="next"><button class="btn" data-go="them">Next: It was never about you</button></div>
@@ -552,87 +611,108 @@ footer p{max-width:720px}
     </div>
   </div>
 
+  <div class="shift">
+    <div class="old"><span class="lab">Instead of thinking</span><p>"I need to sound smart."</p></div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 64 40"><g filter="url(#rough)"><path class="ink ink-red" stroke-width="4" d="M4 22 Q30 12 56 20 M44 8 L58 20 L44 32"/></g></svg></div>
+    <div class="new"><span class="lab">Think this</span><p>"I need them to feel understood."</p></div>
+  </div>
+  <p class="helps"><b>Why it helps:</b> Nerves grow when you're watching yourself: how do I look, how do I sound. They shrink when you focus on one person you're helping. And people keep watching when they feel you get them, not when you sound impressive.</p>
+
   <div class="why-box">
     <h3>What yapping actually is</h3>
     <p>Yapping is simply using what you know to change someone else's life. One shift, for one person, in that moment.</p>
-    <p>Nerves feed on self-monitoring: how do I look, how do I sound, what will they think. Every drill here moves your attention off your face and onto that one person.</p>
   </div>
 
-  <div class="magnetic">
-    <h2>Becoming magnetic.</h2>
-    <p class="panq">Understanding the psychology of it set me free. Our voice has a personality, and it changes how people perceive us.</p>
-    <div class="pillars">
-      <div class="pillar">
-        <h3>Psychology</h3><span class="sub">Make them feel seen</span>
-        <p>An accurate read of their inner world beats trying to sound smart. Name the feeling your ideal follower is in, and lead with what drives them: pain, fear, dreams, desires.</p>
-      </div>
-      <div class="pillar">
-        <h3>Structure</h3><span class="sub">Think clearly</span>
-        <p>One core idea per video, so you speak clearly. Say it in one sentence before you film.</p>
-      </div>
-      <div class="pillar">
-        <h3>Scripting</h3><span class="sub">You become the hook</span>
-        <p>This is where we start playing a different game than everybody else. Your yap card below is where it starts.</p>
-      </div>
+  <h3 class="dothis">How to make people want to watch</h3>
+  <div class="steps3">
+    <div>
+      <div class="big">1</div>
+      <h3>Pick one person</h3>
+      <p>A real person, by name, who needs what you know. Talk only to them.</p>
+      <span class="eg">e.g. Maya, who's about to launch her first offer</span>
+    </div>
+    <div>
+      <div class="big">2</div>
+      <h3>Name what they feel, first</h3>
+      <p>Your first sentence says what they're feeling right now. That sentence is your hook. When people feel seen, they stay.</p>
+      <span class="eg">e.g. "If you've rewritten the same post five times and still haven't posted it, this is for you."</span>
+    </div>
+    <div>
+      <div class="big">3</div>
+      <h3>Say one idea in one sentence</h3>
+      <p>Before you record, say your main point in one sentence. If you can't, it's not ready to film yet.</p>
+      <span class="eg">e.g. "Launch to 10 people before you launch to everyone."</span>
     </div>
   </div>
+  <p class="pannote">"Once I understood why people watch, I stopped trying to sound smart, and everything got easier."<cite>Pan</cite></p>
+
+  <h3 class="dothis">Do this</h3>
 
   <div class="drill">
     <div class="art" data-art="eyes"></div>
     <div>
-      <span class="time">1 minute</span>
-      <h3>Come back to the room</h3>
+      <span class="time"><b>Step 1</b> 1 minute</span>
+      <h3>Notice the room around you</h3>
       <p>Out loud, name:</p>
       <ul>
         <li>Three things you can see ("blue mug", "window", "my notebook")</li>
-        <li>Two things you can feel (chair under you, feet on the floor)</li>
+        <li>Two things you can feel (the chair under you, your feet on the floor)</li>
         <li>One sound in the room</li>
       </ul>
-      <p class="muted">You're in a room. Not in an imagined courtroom full of critics.</p>
+      <p class="muted">This pulls your attention out of your head. You're in a room, not in front of a panel of critics.</p>
     </div>
   </div>
 
   <div class="drill">
     <div class="art" data-art="one"></div>
     <div>
-      <span class="time">3 minutes</span>
-      <h3>Build your yap card. Every time.</h3>
-      <p>Do this before every video you record. One person. What they're feeling. One core idea. Three bullets, no script.</p>
-      <div class="builder">
-        <label>Which yap is this?
-          <input class="field" id="yWhat" placeholder="The video you're about to record"></label>
-        <label>Who am I talking to? (one real person, by name)
-          <input class="field" id="yTo" placeholder="e.g. Maya, who's launching her first offer"></label>
-        <label>What are they feeling right now? (pain, fear, dream or desire)
-          <input class="field" id="yFeel" placeholder="e.g. scared she'll launch to crickets"></label>
-        <label>My one core idea, in one sentence
-          <input class="field" id="yIdea" placeholder="Say it out loud before you type it"></label>
-        <label>Three bullets I'll hit
-          <input class="field" id="yB1" placeholder="Bullet one">
-          <input class="field" id="yB2" placeholder="Bullet two">
-          <input class="field" id="yB3" placeholder="Bullet three"></label>
+      <span class="time"><b>Step 2</b> 3 minutes</span>
+      <h3>Fill in your yap card</h3>
+      <p>It's just the three steps above, written down. Do this before every video you record. Here's what a finished one looks like:</p>
+      <div class="cards2">
+        <div class="yapcard example">
+          <span class="tag">Example</span>
+          <div class="to">A yap for Maya, about to launch her first offer</div>
+          <div class="big">Launch to 10 people before you launch to everyone.</div>
+          <div class="open">Hook: "If you're scared you'll launch to crickets, this is for you."</div>
+          <ul><li>Crickets usually means the wrong room, not a bad offer</li><li>Pick 10 people who already trust you</li><li>Ask them one question before you sell</li></ul>
+        </div>
+        <div class="builder">
+          <label>1. Who am I talking to? (one real person)
+            <input class="field" id="yTo" placeholder="e.g. Maya, about to launch her first offer"></label>
+          <label>2. What are they feeling right now?
+            <input class="field" id="yFeel" placeholder="e.g. scared she'll launch to crickets"></label>
+          <label>3. My one idea, in one sentence
+            <input class="field" id="yIdea" placeholder="Say it out loud before you type it"></label>
+          <label>Three quick points I'll make (a few words each)
+            <input class="field" id="yB1" placeholder="Point one">
+            <input class="field" id="yB2" placeholder="Point two">
+            <input class="field" id="yB3" placeholder="Point three"></label>
+          <label>What's this video about? (optional)
+            <input class="field" id="yWhat" placeholder="e.g. my launch tip"></label>
+        </div>
       </div>
-      <button class="btn red" id="yBtn">Make my yap card</button>
+      <button class="btn red" id="yBtn" style="margin-top:18px">Make my yap card</button>
       <div class="yapcard" id="yapcard" aria-live="polite"></div>
     </div>
   </div>
 
   <div class="slow">
     <div class="words" aria-label="Slow down enough to let every word have its place."><span>Slow down</span><span>enough to let</span><span>every word</span><span>have its place.</span></div>
-    <p>Stop racing to the end of the sentence. Punch the words that matter and let them sit. Enunciate like the news anchors do, but stay natural. No weird news voice.</p>
+    <p>Don't race to the end of your sentence. Give the important words a little extra punch, then pause for a beat. Speak clearly, like a news anchor, but keep your normal voice.</p>
   </div>
 
   <div class="drill">
     <div class="art" data-art="lens"></div>
     <div>
-      <span class="time">1 minute</span>
+      <span class="time"><b>Step 3</b> 1 minute</span>
       <h3>Record it to them</h3>
-      <ul>
-        <li>Music on. Camera on. Hit record a few seconds early and let yourself settle in.</li>
-        <li>Put their name, or a photo of someone who needs this, right beside the lens. Then lock in on it.</li>
-        <li>Open by naming what they're feeling. That's your hook.</li>
-        <li>Talk like it's a voice note to a friend. Three bullets. One take.</li>
-      </ul>
+      <ol>
+        <li>Music on. Camera on. Hit record a few seconds early and let yourself settle.</li>
+        <li>Put their name, or a photo of someone who needs this, right next to the lens. Keep your eyes on the lens, like you're looking at them.</li>
+        <li>Start by naming what they're feeling. That first sentence is your hook.</li>
+        <li>Glance at your three points. Talk like you're sending a voice note to a friend. One take.</li>
+      </ol>
     </div>
   </div>
 
@@ -653,10 +733,20 @@ footer p{max-width:720px}
     </div>
   </div>
 
+  <div class="shift">
+    <div class="old"><span class="lab">Instead of thinking</span><p>"I'll wing it and hope the nerves stay away."</p></div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 64 40"><g filter="url(#rough)"><path class="ink ink-red" stroke-width="4" d="M4 22 Q30 12 56 20 M44 8 L58 20 L44 32"/></g></svg></div>
+    <div class="new"><span class="lab">Think this</span><p>"I have a routine. I run it, then I record."</p></div>
+  </div>
+  <p class="helps"><b>Why it helps:</b> A routine means fewer decisions when you're nervous. After a few days, your body learns that this routine means it's time to record, and it settles faster.</p>
+
+  <h3 class="dothis">Do this</h3>
+  <p class="helps" style="margin-bottom:18px">Press start and follow each step. The timer moves you along. You'll record in step 7.</p>
+
   <div class="runner" id="runner">
     <div>
       <div class="phase" id="rPhase">Step 1 of 8</div>
-      <h3 id="rTitle">Move</h3>
+      <h3 id="rTitle">Shake it out</h3>
       <p id="rText"></p>
       <div class="clock" id="rClock">1:30</div>
       <div class="ctrl">
@@ -673,11 +763,11 @@ footer p{max-width:720px}
   <ol class="plan" id="plan"></ol>
 
   <div class="freeze">
-    <h3>If you freeze mid-take</h3>
-    <p>Stop. Breathe out once. Look at your first bullet. Say "The main point is…" and keep going.</p>
-    <p>Rambling? Say "The short version is…" then one sentence. Done.</p>
-    <p>Racing? Slow down. Punch the words that matter and let them sit.</p>
-    <p>Made a mistake? "Let me say that more clearly." No apology needed.</p>
+    <h3>If you freeze in the middle</h3>
+    <p>Went blank? Breathe out once. Look at your first point. Say "The main point is…" and keep going.</p>
+    <p>Rambling? Say "The short version is…" then say one sentence and stop.</p>
+    <p>Talking too fast? Slow down. Give the important words a punch and pause.</p>
+    <p>Made a mistake? Say "Let me say that more clearly." No apology needed.</p>
   </div>
 
   <div class="commit" data-rep="reset">
@@ -697,19 +787,31 @@ footer p{max-width:720px}
     </div>
   </div>
 
-  <div class="why-box">
-    <h3>This is what decides week three</h3>
-    <p>People don't quit because they're bad on camera. They quit because they forgot why they started. Take four minutes. Don't stop at your first answer. The real why usually lives one layer below the one that sounds good.</p>
+  <div class="shift">
+    <div class="old"><span class="lab">Instead of thinking</span><p>"I'll stay motivated."</p></div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 64 40"><g filter="url(#rough)"><path class="ink ink-red" stroke-width="4" d="M4 22 Q30 12 56 20 M44 8 L58 20 L44 32"/></g></svg></div>
+    <div class="new"><span class="lab">Think this</span><p>"Motivation fades. My why doesn't."</p></div>
+  </div>
+  <p class="helps"><b>Why it helps:</b> Most people don't quit because they're bad on camera. They quit in week three because they forgot why they started. Your why is the real reason you're doing this. The one that keeps you going when it gets hard.</p>
+
+  <h3 class="dothis">Do this</h3>
+  <p class="helps" style="margin-bottom:18px">Answer the first question, then ask "why does that matter?" twice. The real why is usually one or two layers below your first answer. Here's an example:</p>
+  <div class="chain">
+    <span class="lab">Example</span>
+    <p>I want more clients.</p>
+    <p>→ So I stop worrying about money every month.</p>
+    <p>→ So I can be fully present with my family.</p>
+    <p class="line">"I'm doing this so my family gets the present version of me."</p>
   </div>
 
   <div class="dig">
-    <label>What do I want yapping to change in my life?
+    <label>Step 1. What do I want showing up on camera to change in my life?
       <textarea class="field" data-save="w1"></textarea></label>
-    <label class="deeper">But why does that matter?
+    <label class="deeper">Step 2. Why does that matter?
       <textarea class="field" data-save="w2"></textarea></label>
-    <label class="deeper2">But why does that matter?
+    <label class="deeper2">Step 3. And why does that matter?
       <textarea class="field" data-save="w3"></textarea></label>
-    <label><span class="oneline">Now say it in one line.</span>
+    <label><span class="oneline">Step 4. Say it in one line.</span>
       <input class="field" data-save="w4" placeholder="I'm doing this for…"></label>
   </div>
 
@@ -731,8 +833,8 @@ footer p{max-width:720px}
   <div class="cta">
     <div class="l">
       <span class="hand" style="color:var(--mustard)">Here's the part nobody tells you</span>
-      <h2>One reset gets you through one video. Reps make you magnetic.</h2>
-      <p style="margin-top:14px">Nerves don't disappear because you found the right page. They fade because you keep showing up, rep after rep, until the camera feels like home.</p>
+      <h2>One reset gets you through one video. Reps make it stick.</h2>
+      <p style="margin-top:14px">Nerves don't disappear because you found the right page. They fade because you keep showing up. Every video you record makes the next one easier, and makes people trust you more, until the camera feels like home.</p>
       <p class="whatif">What if you had a judgment-free room where everybody is cheering for you?</p>
       <p>A place to get your reps in with the most supportive people you'll find online. Live practice every other week, with people who know exactly how it feels because they're doing it too.</p>
       <p class="whatif">What if you could try it for free?</p>
@@ -937,13 +1039,13 @@ const BREVO_FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFAOt8HYywSvvT3
   yf.forEach(id=>{const el=$("#"+id); if(yd[id]) el.value=yd[id]; el.addEventListener("input",()=>{yd[id]=el.value;store.set("yap",yd)})});
   function renderCard(){
     const v=id=>($("#"+id).value||"").trim();
-    if(!v("yTo")||!v("yIdea")){ $("#yapcard").classList.add("show"); $("#yapcard").textContent="Add who you're talking to and your one core idea. That's the minimum card."; return }
+    if(!v("yTo")||!v("yIdea")){ $("#yapcard").classList.add("show"); $("#yapcard").textContent="Fill in at least question 1 and question 3. That's the minimum card."; return }
     const card=$("#yapcard"); card.innerHTML="";
     const to=document.createElement("div"); to.className="to"; to.textContent=(v("yWhat")?v("yWhat")+" · ":"")+"for "+v("yTo");
     const big=document.createElement("div"); big.className="big"; big.textContent=v("yIdea");
-    const op=document.createElement("div"); op.className="open"; if(v("yFeel")) op.textContent="Open by naming it: "+v("yFeel");
+    const op=document.createElement("div"); op.className="open"; if(v("yFeel")) op.textContent="Hook: open by naming this feeling: "+v("yFeel");
     const ul=document.createElement("ul"); ["yB1","yB2","yB3"].forEach(id=>{if(v(id)){const li=document.createElement("li");li.textContent=v(id);ul.appendChild(li)}});
-    const f=document.createElement("div"); f.className="foot"; f.textContent="Music on · Lock in · Slow down · One take";
+    const f=document.createElement("div"); f.className="foot"; f.textContent="Music on · Eyes on the lens · Slow down · One take";
     card.append(to,big,op,ul,f); card.classList.add("show");
   }
   $("#yBtn").addEventListener("click",renderCard);
@@ -954,14 +1056,14 @@ const BREVO_FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFAOt8HYywSvvT3
 
   /* ---------- 15-minute runner ---------- */
   const steps=[
-    {t:"Move",s:90,art:"shake",x:"Shake out hands, arms and legs, then walk around the room at an easy pace. Burn off the extra charge. Arrive at your seat, not out of breath."},
-    {t:"Hand on heart, sigh it out",s:120,art:"breathe",x:"Hand on your heart. In for 4, hold, big sigh out. Energy comes down, not up. Calm reads as nothing to prove, nothing to hide."},
-    {t:"Feet, shoulders, jaw",s:90,art:"release",x:"Press your feet down and let go. Shoulders up to your ears, then drop. Teeth apart, tongue resting. Hum softly on two exhales."},
-    {t:"Come back to the room",s:60,art:"eyes",x:"Name three things you see, two things you feel, one sound. Say where you are and what you're about to record."},
+    {t:"Shake it out",s:90,art:"shake",x:"Shake out your hands, arms and legs. Then walk around the room at an easy pace. You're burning off the extra nervous energy."},
+    {t:"Hand on heart, sigh it out",s:120,art:"breathe",x:"Hand on your heart. Breathe in for 4, hold for a moment, then one big sigh out. Repeat. You're bringing your energy down, not up."},
+    {t:"Relax feet, shoulders, jaw",s:90,art:"release",x:"Press your feet into the floor, then let go. Shoulders up to your ears, then drop them. Teeth apart, tongue resting. Hum softly on two breaths out."},
+    {t:"Notice the room around you",s:60,art:"eyes",x:"Out loud, name three things you see, two things you feel and one sound. Then say what you're about to record."},
     {t:"Say it out loud",s:60,art:"stamp",x:"\"My first one can be my worst one. Let them have their opinions. Let them judge. I'm such a badass for stretching my boundaries. I deserve the bigger things on the other side. This is for [their name].\""},
-    {t:"Build your yap card",s:180,art:"card",x:"Pick the video you're about to record. One person, what they're feeling right now, your one core idea in one sentence, three bullets. Use the card builder in stop 3."},
-    {t:"Music on. Lock in. Record.",s:180,art:"music",x:"Favorite song on, camera on, hit record a few seconds early. Settle in, then lock onto the lens and flirt with it. Open by naming their feeling. Slow down and let every word have its place. One take."},
-    {t:"Close the loop",s:120,art:"save",x:"Save it. Don't delete for 30 minutes. Don't rewatch yet. Write down one thing that worked. You showed up. That's the rep."}
+    {t:"Fill in your yap card",s:180,art:"card",x:"Answer three questions: Who am I talking to? What are they feeling right now? What's my one idea, in one sentence? Add three quick points. Use the card in stop 3."},
+    {t:"Music on. Eyes on the lens. Record.",s:180,art:"music",x:"Favorite song on, camera on, hit record a few seconds early. Look into the lens like you're talking to someone you like. Start by naming what they're feeling. Slow down. One take."},
+    {t:"Save it and walk away",s:120,art:"save",x:"Save it. Don't delete it for 30 minutes. Don't rewatch it yet. Write down one thing that went well. You showed up. That counts."}
   ];
   const plan=$("#plan"); let acc=0;
   steps.forEach(st=>{const li=document.createElement("li"); li.innerHTML=`<span class="m">${fmt(acc)}</span><span><b></b><br><span class="d"></span></span>`; $("b",li).textContent=st.t; $(".d",li).textContent=st.x; plan.appendChild(li); acc+=st.s});
