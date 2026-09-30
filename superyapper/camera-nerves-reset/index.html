@@ -297,6 +297,18 @@ body.locked #gate{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-i
 .chain p:nth-child(3){padding-left:22px}.chain p:nth-child(4){padding-left:44px}
 .chain p.line{padding-left:0;font-family:var(--display);color:var(--ink);font-size:1.5rem;margin-top:.6rem;letter-spacing:.02em}
 
+/* visualization */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 8px}
+.chips button{border:2px solid var(--ink);background:transparent;color:var(--text);border-radius:30px;padding:7px 14px;font-size:.92rem;font-weight:700;text-align:left}
+.chips button:hover,.chips button.on{background:var(--mustard);border-color:var(--mustard);color:#000}
+.vis{margin:22px 0 0;background:var(--deep);color:#fff;padding:26px 28px;max-width:720px;transform:rotate(-.5deg)}
+.vis-lab{font-family:var(--hand);color:var(--mustard);margin:0 0 6px;font-size:1.05rem}
+.vis-q{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12;letter-spacing:.02em;margin:0 0 18px;color:#fff;min-height:2.3em}
+.vis-bar{height:8px;background:rgba(255,255,255,.2);margin-bottom:18px}
+.vis-bar i{display:block;height:100%;width:0;background:var(--mustard);transition:width 1s linear}
+.vis .btn{background:#fff;color:#000;border-color:#fff}
+.tease{margin:10px 0 0;font-family:var(--hand);color:var(--teal);font-size:1.05rem}
+
 /* why */
 .dig{max-width:680px;display:grid;gap:18px;margin-top:10px}
 .dig label{display:grid;gap:8px;font-weight:900;color:var(--ink)}
@@ -368,7 +380,7 @@ footer p{max-width:720px}
     <button class="stop" role="tab" data-go="start"><b>Start here</b><small>Read this first</small></button>
     <button class="stop" role="tab" data-go="worst"><b>1 · Worst one</b><small>3 min <span class="tick" data-tick="worst"></span></small></button>
     <button class="stop" role="tab" data-go="letthem"><b>2 · Let them</b><small>4 min <span class="tick" data-tick="letthem"></span></small></button>
-    <button class="stop" role="tab" data-go="them"><b>3 · Not about you</b><small>6 min <span class="tick" data-tick="them"></span></small></button>
+    <button class="stop" role="tab" data-go="them"><b>3 · Not about you</b><small>7 min <span class="tick" data-tick="them"></span></small></button>
     <button class="stop" role="tab" data-go="reset"><b>4 · 15-min reset</b><small>The routine <span class="tick" data-tick="reset"></span></small></button>
     <button class="stop" role="tab" data-go="why"><b>5 · Your why</b><small>What keeps you in <span class="tick" data-tick="why"></span></small></button>
   </div>
@@ -414,7 +426,7 @@ footer p{max-width:720px}
     <button class="frame f3" data-go="them">
       <span class="n">Three</span>
       <span class="t">It was never about you.</span>
-      <span class="d">Make it about them and the nerves have nowhere to live.</span>
+      <span class="d">Make it about the people you're here to help, and the nerves have nowhere to live.</span>
       <span class="go">Learn exactly what to say</span>
     </button>
   </div>
@@ -454,7 +466,7 @@ footer p{max-width:720px}
     <p><b>Anchor it.</b>Stop 5 helps you find the reason you'll keep going when it gets hard.</p>
   </div>
 
-  <div class="next"><button class="btn red" data-go="worst">Start with stop 1</button></div>
+  <div class="next"><button class="btn red" data-go="worst">Start with stop 1</button><p class="tease">3 minutes from now, your first rep is done.</p></div>
 </section>
 
 <!-- ================= 1 WORST ONE ================= -->
@@ -492,11 +504,12 @@ footer p{max-width:720px}
     <div>
       <span class="time"><b>Step 2</b> 1 minute</span>
       <h3>Turn the camera on before you're ready</h3>
-      <p>Put your favorite song on. Turn your camera on and look at yourself for a few seconds. Hit record a little before you plan to speak.</p>
-      <p>Then look into the lens (the little circle, not your face on the screen) and say "Hello, this is practice" three times. Slower each time.</p>
+      <p>Play your favorite song. Turn your camera on, hit record, and let it roll for a few seconds while you look at yourself and enjoy the song.</p>
+      <p>Then turn the music off, and start talking.</p>
+      <p>Look into the lens (the little circle, not your face on the screen) and say "Hello, this is practice" three times. Slower each time.</p>
       <div class="tip">
-        <span class="hand">Why I hit record with the music on</span>
-        <p>Music tells your body this is a party, not a threat. And each time you look at the camera and nothing bad happens, your body learns it's safe.</p>
+        <span class="hand">Why I start with music, then turn it off</span>
+        <p>The music is just the warm-up, not the background. Your favorite song tells your body this is a party, not a threat. By the time you turn it off to speak, your body has already decided the camera is safe.</p>
       </div>
     </div>
   </div>
@@ -520,7 +533,7 @@ footer p{max-width:720px}
     <label><input type="checkbox"> I recorded my worst one.</label>
     <span class="done">That's rep one. It only goes up from here.</span>
   </div>
-  <div class="next"><button class="btn" data-go="letthem">Next: Let them</button></div>
+  <div class="next"><button class="btn" data-go="letthem">Next: Let them</button><p class="tease">Up next: how to stop caring what they think, in 4 minutes.</p></div>
 </section>
 
 <!-- ================= 2 LET THEM ================= -->
@@ -598,7 +611,7 @@ footer p{max-width:720px}
     <label><input type="checkbox"> I named a fear and said it out loud.</label>
     <span class="done">They can have the opinion. You keep the future.</span>
   </div>
-  <div class="next"><button class="btn" data-go="them">Next: It was never about you</button></div>
+  <div class="next"><button class="btn" data-go="them">Next: It was never about you</button><p class="tease">Up next: the one shift that tells you exactly what to say.</p></div>
 </section>
 
 <!-- ================= 3 NOT ABOUT YOU ================= -->
@@ -607,16 +620,22 @@ footer p{max-width:720px}
     <div class="stopnum">3</div>
     <div>
       <h2>It was never about you.</h2>
-      <p class="quote">The second you make it about them, the nerves have nowhere to live.</p>
+      <p class="quote">It's about the people you're here to help. Make it about them, and the nerves have nowhere to live.</p>
     </div>
+  </div>
+
+  <div class="why-box" style="margin-bottom:34px">
+    <h3>The real problem</h3>
+    <p>When you're on camera, all your attention is on you. How do I look? How do I sound? Am I good enough? That's exactly where nerves grow.</p>
+    <p>So flip the focus onto the people you're here to help. The ones who need what you know, and whose day, business or life could change because you shared it.</p>
   </div>
 
   <div class="shift">
     <div class="old"><span class="lab">Instead of thinking</span><p>"I need to sound smart."</p></div>
     <div class="arrow" aria-hidden="true"><svg viewBox="0 0 64 40"><g filter="url(#rough)"><path class="ink ink-red" stroke-width="4" d="M4 22 Q30 12 56 20 M44 8 L58 20 L44 32"/></g></svg></div>
-    <div class="new"><span class="lab">Think this</span><p>"I need them to feel understood."</p></div>
+    <div class="new"><span class="lab">Think this</span><p>"I need the person I'm helping to feel seen and understood."</p></div>
   </div>
-  <p class="helps"><b>Why it helps:</b> Nerves grow when you're watching yourself: how do I look, how do I sound. They shrink when you focus on one person you're helping. And people keep watching when they feel you get them, not when you sound impressive.</p>
+  <p class="helps"><b>Why it helps:</b> Your nerves shrink when your attention moves off yourself and onto one person you're helping. And people keep watching when they feel seen and understood, not when you sound impressive.</p>
 
   <div class="why-box">
     <h3>What yapping actually is</h3>
@@ -628,7 +647,7 @@ footer p{max-width:720px}
     <div>
       <div class="big">1</div>
       <h3>Pick one person</h3>
-      <p>A real person, by name, who needs what you know. Talk only to them.</p>
+      <p>A real person, by name, who needs what you know. Talk only to that one person.</p>
       <span class="eg">e.g. Maya, who's about to launch her first offer</span>
     </div>
     <div>
@@ -649,17 +668,34 @@ footer p{max-width:720px}
   <h3 class="dothis">Do this</h3>
 
   <div class="drill">
-    <div class="art" data-art="eyes"></div>
+    <div class="art" data-art="heart"></div>
     <div>
-      <span class="time"><b>Step 1</b> 1 minute</span>
-      <h3>Notice the room around you</h3>
-      <p>Out loud, name:</p>
-      <ul>
-        <li>Three things you can see ("blue mug", "window", "my notebook")</li>
-        <li>Two things you can feel (the chair under you, your feet on the floor)</li>
-        <li>One sound in the room</li>
-      </ul>
-      <p class="muted">This pulls your attention out of your head. You're in a room, not in front of a panel of critics.</p>
+      <span class="time"><b>Step 1</b> 2 minutes</span>
+      <h3>Picture the one person you're here to help</h3>
+      <p>Who needs what you know? Tap the one closest to your person, or write your own.</p>
+      <div class="chips" id="chips">
+        <button type="button">A mom juggling work, kids and a dream of her own</button>
+        <button type="button">A student overwhelmed by everything in their life</button>
+        <button type="button">Someone lost in their career</button>
+        <button type="button">A leader who feels like an imposter</button>
+        <button type="button">Someone trying to finally understand data</button>
+      </div>
+      <input class="field" id="visWho" placeholder="The person I'm helping is…" aria-label="The person I'm helping is" style="width:100%;max-width:620px;margin-top:6px;display:block">
+
+      <div class="vis" id="vis">
+        <p class="vis-lab" id="visLab">Ready when you are</p>
+        <p class="vis-q" id="visQ">Press start, then close your eyes. A soft chime tells you when to move to the next question.</p>
+        <div class="vis-bar"><i id="visBar"></i></div>
+        <button class="btn" id="visBtn">Start the 2 minutes</button>
+      </div>
+
+      <div class="builder" style="margin-top:20px;max-width:620px">
+        <label>Right now, they're feeling…
+          <input class="field" id="visFeel" placeholder="e.g. stuck, like everyone else has it figured out"></label>
+        <label>After they hear my yap, they'll…
+          <input class="field" id="visChange" placeholder="e.g. finally believe they can do this, and take the first step"></label>
+      </div>
+      <p class="muted">That change is the whole reason you're hitting record. Hold onto it. It's already on your yap card below.</p>
     </div>
   </div>
 
@@ -706,10 +742,10 @@ footer p{max-width:720px}
     <div class="art" data-art="lens"></div>
     <div>
       <span class="time"><b>Step 3</b> 1 minute</span>
-      <h3>Record it to them</h3>
+      <h3>Record it for the person you're helping</h3>
       <ol>
-        <li>Music on. Camera on. Hit record a few seconds early and let yourself settle.</li>
-        <li>Put their name, or a photo of someone who needs this, right next to the lens. Keep your eyes on the lens, like you're looking at them.</li>
+        <li>Play your favorite song, hit record, and let it roll for a few seconds. Then turn the music off before you speak.</li>
+        <li>Put the name, or a photo, of the person you're helping right next to the lens. Keep your eyes on the lens, like you're looking at that person.</li>
         <li>Start by naming what they're feeling. That first sentence is your hook.</li>
         <li>Glance at your three points. Talk like you're sending a voice note to a friend. One take.</li>
       </ol>
@@ -720,7 +756,7 @@ footer p{max-width:720px}
     <label><input type="checkbox"> I recorded one for someone specific.</label>
     <span class="done">That's what yapping is. You gave something away.</span>
   </div>
-  <div class="next"><button class="btn" data-go="reset">Next: Put it all together</button></div>
+  <div class="next"><button class="btn" data-go="reset">Next: Put it all together</button><p class="tease">Up next: everything you just did, in one 15-minute routine you can run before any video.</p></div>
 </section>
 
 <!-- ================= 4 RESET ================= -->
@@ -774,7 +810,7 @@ footer p{max-width:720px}
     <label><input type="checkbox"> I ran the full 15 minutes and recorded.</label>
     <span class="done">That's a routine, not a mood. Run it again tomorrow.</span>
   </div>
-  <div class="next"><button class="btn" data-go="why">Last stop: Your why</button></div>
+  <div class="next"><button class="btn" data-go="why">Last stop: Your why</button><p class="tease">The last stop decides whether you're still doing this three weeks from now.</p></div>
 </section>
 
 <!-- ================= 5 WHY ================= -->
@@ -941,6 +977,12 @@ const BREVO_FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFAOt8HYywSvvT3
     move:null, card:null, save:null
   };
   A.move = A.shake;
+  A.heart = `<svg viewBox="0 0 200 200"><g filter="url(#rough)">
+      <circle class="ink ink-teal" cx="100" cy="62" r="20"/>
+      <path class="ink ink-teal" d="M68 160 q0 -58 32 -68 q32 10 32 68"/>
+      <path class="ink ink-red" d="M100 128 q-14 -16 -2 -24 q8 -4 12 6 q4 -10 12 -6 q12 8 -2 24 l-10 10 z" transform="translate(-10 0)"/>
+      <path class="ink ink-mus" d="M100 26 l0 -14 M72 34 l-9 -10 M128 34 l9 -10"/>
+      <text x="40" y="192" style="font-family:'Permanent Marker';font-size:16px;fill:var(--red)">who needs this?</text></g></svg>`;
   A.music = `<svg viewBox="0 0 200 200"><g filter="url(#rough)">
       <rect class="ink" x="40" y="35" width="76" height="140" rx="14"/>
       <circle class="ink ink-red" cx="78" cy="52" r="7"/>
@@ -1041,15 +1083,58 @@ const BREVO_FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFAOt8HYywSvvT3
     const v=id=>($("#"+id).value||"").trim();
     if(!v("yTo")||!v("yIdea")){ $("#yapcard").classList.add("show"); $("#yapcard").textContent="Fill in at least question 1 and question 3. That's the minimum card."; return }
     const card=$("#yapcard"); card.innerHTML="";
-    const to=document.createElement("div"); to.className="to"; to.textContent=(v("yWhat")?v("yWhat")+" · ":"")+"for "+v("yTo");
+    const to=document.createElement("div"); to.className="to"; to.textContent=(v("yWhat")?v("yWhat")+" · ":"")+"for "+v("yTo").replace(/^A /,"a ").replace(/^Someone /,"someone ");
     const big=document.createElement("div"); big.className="big"; big.textContent=v("yIdea");
     const op=document.createElement("div"); op.className="open"; if(v("yFeel")) op.textContent="Hook: open by naming this feeling: "+v("yFeel");
     const ul=document.createElement("ul"); ["yB1","yB2","yB3"].forEach(id=>{if(v(id)){const li=document.createElement("li");li.textContent=v(id);ul.appendChild(li)}});
-    const f=document.createElement("div"); f.className="foot"; f.textContent="Music on · Eyes on the lens · Slow down · One take";
-    card.append(to,big,op,ul,f); card.classList.add("show");
+    const f=document.createElement("div"); f.className="foot"; f.textContent="Song on, then off · Eyes on the lens · Slow down · One take";
+    const ch=document.createElement("div"); ch.className="open"; const cv=(document.getElementById("visChange")||{}).value; if(cv&&cv.trim()) ch.textContent="After this, they'll "+cv.trim().replace(/^they'll\s*/i,"");
+    card.append(to,big,op,ch,ul,f); card.classList.add("show");
   }
   $("#yBtn").addEventListener("click",renderCard);
   if(yd.yTo&&yd.yIdea) renderCard();
+
+  /* ---------- picture your person ---------- */
+  const visWho=$("#visWho"), visFeel=$("#visFeel"), visChange=$("#visChange");
+  const vsave=store.get("vis",{});
+  [["who",visWho],["feel",visFeel],["change",visChange]].forEach(([k,el])=>{ if(vsave[k]) el.value=vsave[k]; el.addEventListener("input",()=>{vsave[k]=el.value;store.set("vis",vsave);sync()}) });
+  function sync(){
+    const pairs=[[visWho,"yTo"],[visFeel,"yFeel"]];
+    pairs.forEach(([src,id])=>{const t=$("#"+id); if(src.value.trim() && (!t.value.trim()||t.dataset.auto==="1")){t.value=src.value;t.dataset.auto="1";yd[id]=t.value;store.set("yap",yd)}});
+  }
+  $$("#chips button").forEach(b=>b.addEventListener("click",()=>{
+    $$("#chips button").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+    visWho.value=b.textContent; vsave.who=visWho.value; store.set("vis",vsave); sync();
+  }));
+  let actx=null;
+  function chime(){
+    try{ actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+      const o=actx.createOscillator(), g=actx.createGain(); o.type="sine"; o.frequency.value=660;
+      g.gain.setValueAtTime(0.0001,actx.currentTime); g.gain.exponentialRampToValueAtTime(0.18,actx.currentTime+0.05); g.gain.exponentialRampToValueAtTime(0.0001,actx.currentTime+1.4);
+      o.connect(g).connect(actx.destination); o.start(); o.stop(actx.currentTime+1.5);
+    }catch(e){}
+  }
+  const phases=[
+    {t:25,l:"Eyes closed",q:"See them clearly. Where are they right now? What does their day look like?"},
+    {t:30,l:"Feel it with them",q:"How are they feeling? Stuck? Overwhelmed? Scared nobody sees them?"},
+    {t:40,l:"Now, after your yap",q:"They just watched your video. What shifted for them? What do they believe now that they didn't before?"},
+    {t:25,l:"Hold it",q:"What will they do differently tomorrow because of you? Hold that picture. Then open your eyes."}
+  ];
+  const total=phases.reduce((a,p)=>a+p.t,0); let vt=null;
+  function nameIt(){ const w=visWho.value.trim(); return w? w.charAt(0).toLowerCase()+w.slice(1) : "the person you're helping"; }
+  $("#visBtn").addEventListener("click",()=>{
+    if(vt){clearInterval(vt);vt=null;$("#visBtn").textContent="Start again";$("#visLab").textContent="Paused";return}
+    let el=0, pi=-1; chime(); $("#visBtn").textContent="Stop";
+    const show=i=>{ $("#visLab").textContent=phases[i].l+" · picturing "+nameIt(); $("#visQ").textContent=phases[i].q; };
+    let edge=0; pi=0; show(0);
+    vt=setInterval(()=>{
+      el++; $("#visBar").style.width=(el/total*100)+"%";
+      let acc=0; for(let i=0;i<phases.length;i++){acc+=phases[i].t; if(el<acc){ if(i!==pi){pi=i;show(i);chime()} break; }}
+      if(el>=total){clearInterval(vt);vt=null;chime();
+        $("#visLab").textContent="Done"; $("#visQ").textContent="Open your eyes. Now write down what you saw, while it's fresh.";
+        $("#visBtn").textContent="Run it again"; visFeel.focus({preventScroll:true});}
+    },1000);
+  });
 
   /* ---------- why fields ---------- */
   $$("[data-save]").forEach(el=>{const k="why_"+el.dataset.save; el.value=store.get(k,""); el.addEventListener("input",()=>store.set(k,el.value))});
@@ -1059,10 +1144,10 @@ const BREVO_FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFAOt8HYywSvvT3
     {t:"Shake it out",s:90,art:"shake",x:"Shake out your hands, arms and legs. Then walk around the room at an easy pace. You're burning off the extra nervous energy."},
     {t:"Hand on heart, sigh it out",s:120,art:"breathe",x:"Hand on your heart. Breathe in for 4, hold for a moment, then one big sigh out. Repeat. You're bringing your energy down, not up."},
     {t:"Relax feet, shoulders, jaw",s:90,art:"release",x:"Press your feet into the floor, then let go. Shoulders up to your ears, then drop them. Teeth apart, tongue resting. Hum softly on two breaths out."},
-    {t:"Notice the room around you",s:60,art:"eyes",x:"Out loud, name three things you see, two things you feel and one sound. Then say what you're about to record."},
+    {t:"Picture the person you're helping",s:60,art:"heart",x:"Close your eyes. See the one person who needs this video. How do they feel right now? After they hear your yap, what changes for them? Hold that picture, then open your eyes."},
     {t:"Say it out loud",s:60,art:"stamp",x:"\"My first one can be my worst one. Let them have their opinions. Let them judge. I'm such a badass for stretching my boundaries. I deserve the bigger things on the other side. This is for [their name].\""},
     {t:"Fill in your yap card",s:180,art:"card",x:"Answer three questions: Who am I talking to? What are they feeling right now? What's my one idea, in one sentence? Add three quick points. Use the card in stop 3."},
-    {t:"Music on. Eyes on the lens. Record.",s:180,art:"music",x:"Favorite song on, camera on, hit record a few seconds early. Look into the lens like you're talking to someone you like. Start by naming what they're feeling. Slow down. One take."},
+    {t:"Song on, then record",s:180,art:"music",x:"Play your favorite song, hit record, and let it roll for a few seconds. Turn the music off. Now look into the lens like you're talking to the person you're helping. Start by naming what they're feeling. Slow down. One take."},
     {t:"Save it and walk away",s:120,art:"save",x:"Save it. Don't delete it for 30 minutes. Don't rewatch it yet. Write down one thing that went well. You showed up. That counts."}
   ];
   const plan=$("#plan"); let acc=0;
