@@ -302,12 +302,28 @@ body.locked #gate{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-i
 .chips button{border:2px solid var(--ink);background:transparent;color:var(--text);border-radius:30px;padding:7px 14px;font-size:.92rem;font-weight:700;text-align:left}
 .chips button:hover,.chips button.on{background:var(--mustard);border-color:var(--mustard);color:#000}
 .vis{margin:22px 0 0;background:var(--deep);color:#fff;padding:26px 28px;max-width:720px;transform:rotate(-.5deg)}
-.vis-lab{font-family:var(--hand);color:var(--mustard);margin:0 0 6px;font-size:1.05rem}
-.vis-q{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12;letter-spacing:.02em;margin:0 0 18px;color:#fff;min-height:2.3em}
-.vis-bar{height:8px;background:rgba(255,255,255,.2);margin-bottom:18px}
+.vis-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.vis-lab{font-family:var(--hand);color:var(--mustard);font-size:1.05rem}
+.vis-dots{display:flex;gap:6px}
+.vis-dots i{width:34px;height:8px;background:rgba(255,255,255,.22);display:block}
+.vis-dots i.done{background:var(--mustard)}
+.vis-dots i.cur{background:#fff}
+.vis-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:14px}
+.vis-clock{font-family:var(--display);font-size:clamp(3rem,7vw,4.4rem);line-height:.9;color:var(--mustard);min-width:2.6ch}
+.vis-ctrl{display:flex;gap:8px;flex-wrap:wrap}
+.vis .btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.vis-how{font-size:.9rem;color:#CFE3E0;margin:12px 0 0}
+.vis-q{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12;letter-spacing:.02em;margin:0 0 16px;color:#fff;min-height:2.3em}
+.vis-bar{height:6px;background:rgba(255,255,255,.2)}
 .vis-bar i{display:block;height:100%;width:0;background:var(--mustard);transition:width 1s linear}
 .vis .btn{background:#fff;color:#000;border-color:#fff}
 .tease{margin:10px 0 0;font-family:var(--hand);color:var(--teal);font-size:1.05rem}
+
+/* proof + deeper */
+.proof{max-width:720px;margin:0 0 34px;padding:18px 22px;border:3px solid var(--ink);background:var(--paper);transform:rotate(.4deg);box-shadow:6px 6px 0 var(--mustard)}
+.proof .hand{font-size:1rem}
+.proof p{margin:.4rem 0 0;font-size:1rem}
+.deeper-note{max-width:680px;margin:24px 0 0;padding-left:16px;border-left:5px solid var(--red);font-weight:700;color:var(--ink)}
 
 /* why */
 .dig{max-width:680px;display:grid;gap:18px;margin-top:10px}
@@ -683,10 +699,21 @@ footer p{max-width:720px}
       <input class="field" id="visWho" placeholder="The person I'm helping is…" aria-label="The person I'm helping is" style="width:100%;max-width:620px;margin-top:6px;display:block">
 
       <div class="vis" id="vis">
-        <p class="vis-lab" id="visLab">Ready when you are</p>
-        <p class="vis-q" id="visQ">Press start, then close your eyes. A soft chime tells you when to move to the next question.</p>
+        <div class="vis-top">
+          <span class="vis-lab" id="visLab">Question 1 of 4</span>
+          <span class="vis-dots" id="visDots" aria-hidden="true"></span>
+        </div>
+        <p class="vis-q" id="visQ"></p>
+        <div class="vis-row">
+          <div class="vis-clock" id="visClock" aria-live="off">0:25</div>
+          <div class="vis-ctrl">
+            <button class="btn" id="visBtn">Start, then close your eyes</button>
+            <button class="btn ghost" id="visPrev">Back</button>
+            <button class="btn ghost" id="visNext">Next</button>
+          </div>
+        </div>
         <div class="vis-bar"><i id="visBar"></i></div>
-        <button class="btn" id="visBtn">Start the 2 minutes</button>
+        <p class="vis-how">Read the question. Press start. Close your eyes. When you hear the chime, open them and read the next one. Done early? Press Next.</p>
       </div>
 
       <div class="builder" style="margin-top:20px;max-width:620px">
@@ -744,7 +771,7 @@ footer p{max-width:720px}
       <span class="time"><b>Step 3</b> 1 minute</span>
       <h3>Record it for the person you're helping</h3>
       <ol>
-        <li>Play your favorite song, hit record, and let it roll for a few seconds. Then turn the music off before you speak.</li>
+        <li>Play your favorite song, hit record, and let it roll for a few seconds. Then turn the music off before you speak. <span class="muted">(Your favorite song relaxes your nervous system. When you turn it off, you start from a calm, grounded place, and you sound like yourself.)</span></li>
         <li>Put the name, or a photo, of the person you're helping right next to the lens. Keep your eyes on the lens, like you're looking at that person.</li>
         <li>Start by naming what they're feeling. That first sentence is your hook.</li>
         <li>Glance at your three points. Talk like you're sending a voice note to a friend. One take.</li>
@@ -830,6 +857,11 @@ footer p{max-width:720px}
   </div>
   <p class="helps"><b>Why it helps:</b> Most people don't quit because they're bad on camera. They quit in week three because they forgot why they started. Your why is the real reason you're doing this. The one that keeps you going when it gets hard.</p>
 
+  <div class="proof">
+    <span class="hand">Where this comes from</span>
+    <p>This is a short version of the <b>"7 Levels Deep"</b> exercise, made famous by entrepreneur Dean Graziosi. He learned it from coach Joe Stumpf, who used it with his high-level clients. It's the same keep-asking-why idea behind Toyota's famous "5 Whys" for finding the root of a problem. Here, the problem is quitting, and the root is your why.</p>
+  </div>
+
   <h3 class="dothis">Do this</h3>
   <p class="helps" style="margin-bottom:18px">Answer the first question, then ask "why does that matter?" twice. The real why is usually one or two layers below your first answer. Here's an example:</p>
   <div class="chain">
@@ -850,6 +882,8 @@ footer p{max-width:720px}
     <label><span class="oneline">Step 4. Say it in one line.</span>
       <input class="field" data-save="w4" placeholder="I'm doing this for…"></label>
   </div>
+
+  <p class="deeper-note">Inside The SuperYapper Club, Pan explains clearly how to get to the root of your why, and why it's going to be your biggest asset.</p>
 
   <div class="panquote">
     <blockquote>"I am doing this to provide freedom for me and my daughter."</blockquote>
@@ -1115,26 +1149,39 @@ const BREVO_FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFAOt8HYywSvvT3
     }catch(e){}
   }
   const phases=[
-    {t:25,l:"Eyes closed",q:"See them clearly. Where are they right now? What does their day look like?"},
-    {t:30,l:"Feel it with them",q:"How are they feeling? Stuck? Overwhelmed? Scared nobody sees them?"},
-    {t:40,l:"Now, after your yap",q:"They just watched your video. What shifted for them? What do they believe now that they didn't before?"},
-    {t:25,l:"Hold it",q:"What will they do differently tomorrow because of you? Hold that picture. Then open your eyes."}
+    {t:25,q:"See them clearly. Where are they right now? What does their day look like?"},
+    {t:25,q:"How are they feeling right now? Stuck? Overwhelmed? Scared nobody sees them?"},
+    {t:30,q:"They just watched your video. What shifted for them? What do they believe now that they didn't before?"},
+    {t:20,q:"What will they do differently tomorrow because of you? Hold that picture."}
   ];
-  const total=phases.reduce((a,p)=>a+p.t,0); let vt=null;
-  function nameIt(){ const w=visWho.value.trim(); return w? w.charAt(0).toLowerCase()+w.slice(1) : "the person you're helping"; }
+  let vi=0, vleft=phases[0].t, vt=null, vdone=false;
+  const vdots=$("#visDots"); phases.forEach(()=>vdots.appendChild(document.createElement("i")));
+  function vpaint(){
+    const who=visWho.value.trim();
+    $("#visLab").textContent = vdone ? "All 4 done" : `Question ${vi+1} of ${phases.length}` + (who? " · picturing "+who.charAt(0).toLowerCase()+who.slice(1) : "");
+    $("#visQ").textContent = vdone ? "Open your eyes. Now write down what you saw, while it's fresh." : phases[vi].q;
+    $("#visClock").textContent = vdone ? "Done" : fmt(vleft);
+    $$("i",vdots).forEach((d,i)=>{d.className = (vdone||i<vi)?"done":(i===vi?"cur":"")});
+    $("#visBar").style.width = vdone?"100%":((phases[vi].t-vleft)/phases[vi].t*100)+"%";
+    $("#visBtn").textContent = vdone ? "Start over" : (vt ? "Pause" : (vleft<phases[vi].t ? "Resume" : "Start, then close your eyes"));
+    $("#visPrev").disabled = vi===0 && !vdone; $("#visNext").textContent = vi===phases.length-1 ? "Finish" : "Next";
+  }
+  function vstop(){ if(vt){clearInterval(vt);vt=null} }
+  function vgo(i){ vstop(); if(i>=phases.length){vdone=true;vpaint();visFeel.focus({preventScroll:true});return} vdone=false; vi=Math.max(0,i); vleft=phases[vi].t; vpaint(); }
   $("#visBtn").addEventListener("click",()=>{
-    if(vt){clearInterval(vt);vt=null;$("#visBtn").textContent="Start again";$("#visLab").textContent="Paused";return}
-    let el=0, pi=-1; chime(); $("#visBtn").textContent="Stop";
-    const show=i=>{ $("#visLab").textContent=phases[i].l+" · picturing "+nameIt(); $("#visQ").textContent=phases[i].q; };
-    let edge=0; pi=0; show(0);
+    if(vdone){ vgo(0); return }
+    if(vt){ vstop(); vpaint(); return }
+    try{ actx=actx||new (window.AudioContext||window.webkitAudioContext)(); }catch(e){}
     vt=setInterval(()=>{
-      el++; $("#visBar").style.width=(el/total*100)+"%";
-      let acc=0; for(let i=0;i<phases.length;i++){acc+=phases[i].t; if(el<acc){ if(i!==pi){pi=i;show(i);chime()} break; }}
-      if(el>=total){clearInterval(vt);vt=null;chime();
-        $("#visLab").textContent="Done"; $("#visQ").textContent="Open your eyes. Now write down what you saw, while it's fresh.";
-        $("#visBtn").textContent="Run it again"; visFeel.focus({preventScroll:true});}
+      vleft--; if(vleft<=0){ chime(); vgo(vi+1); return }   // chime = open your eyes; next question waits for you
+      vpaint();
     },1000);
+    vpaint();
   });
+  $("#visNext").addEventListener("click",()=>vgo(vi+1));
+  $("#visPrev").addEventListener("click",()=>vgo(vdone?phases.length-1:vi-1));
+  visWho.addEventListener("input",vpaint);
+  vpaint();
 
   /* ---------- why fields ---------- */
   $$("[data-save]").forEach(el=>{const k="why_"+el.dataset.save; el.value=store.get(k,""); el.addEventListener("input",()=>store.set(k,el.value))});
@@ -1147,7 +1194,7 @@ const BREVO_FORM_ACTION = "https://211fe890.sibforms.com/serve/MUIFAOt8HYywSvvT3
     {t:"Picture the person you're helping",s:60,art:"heart",x:"Close your eyes. See the one person who needs this video. How do they feel right now? After they hear your yap, what changes for them? Hold that picture, then open your eyes."},
     {t:"Say it out loud",s:60,art:"stamp",x:"\"My first one can be my worst one. Let them have their opinions. Let them judge. I'm such a badass for stretching my boundaries. I deserve the bigger things on the other side. This is for [their name].\""},
     {t:"Fill in your yap card",s:180,art:"card",x:"Answer three questions: Who am I talking to? What are they feeling right now? What's my one idea, in one sentence? Add three quick points. Use the card in stop 3."},
-    {t:"Song on, then record",s:180,art:"music",x:"Play your favorite song, hit record, and let it roll for a few seconds. Turn the music off. Now look into the lens like you're talking to the person you're helping. Start by naming what they're feeling. Slow down. One take."},
+    {t:"Song on, then record",s:180,art:"music",x:"Play your favorite song, hit record, and let it roll for a few seconds. It relaxes your nervous system. Turn the music off. Now look into the lens like you're talking to the person you're helping. Start by naming what they're feeling. Slow down. One take."},
     {t:"Save it and walk away",s:120,art:"save",x:"Save it. Don't delete it for 30 minutes. Don't rewatch it yet. Write down one thing that went well. You showed up. That counts."}
   ];
   const plan=$("#plan"); let acc=0;
