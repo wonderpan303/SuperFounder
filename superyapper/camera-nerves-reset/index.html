@@ -294,7 +294,8 @@ body.locked #gate{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-i
 .chain{max-width:720px;margin:0 0 30px;padding:20px 24px;background:var(--panel)}
 .chain .lab{display:block;font-weight:900;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .chain p{margin:.2rem 0;font-family:var(--hand);font-size:1.1rem;color:var(--teal)}
-.chain p:nth-child(3){padding-left:22px}.chain p:nth-child(4){padding-left:44px}
+.chain p:nth-child(3){padding-left:22px}.chain p:nth-child(4){padding-left:44px}.chain p:nth-child(5){padding-left:66px}.chain p:nth-child(6){padding-left:88px;color:var(--red)}
+@media (max-width:640px){.chain p:nth-child(n){padding-left:0}}
 .chain p.line{padding-left:0;font-family:var(--display);color:var(--ink);font-size:1.5rem;margin-top:.6rem;letter-spacing:.02em}
 
 /* visualization */
@@ -322,7 +323,8 @@ body.locked #gate{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-i
 /* proof + deeper */
 .proof{max-width:720px;margin:0 0 34px;padding:18px 22px;border:3px solid var(--ink);background:var(--paper);transform:rotate(.4deg);box-shadow:6px 6px 0 var(--mustard)}
 .proof .hand{font-size:1rem}
-.proof p{margin:.4rem 0 0;font-size:1rem}
+.proof p{margin:.5rem 0 0;font-size:1rem}
+.proof .src{font-size:.88rem;color:var(--muted);border-top:2px dashed var(--muted);padding-top:10px;margin-top:12px}
 .deeper-note{max-width:680px;margin:24px 0 0;padding-left:16px;border-left:5px solid var(--red);font-weight:700;color:var(--ink)}
 
 /* why */
@@ -330,6 +332,9 @@ body.locked #gate{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-i
 .dig label{display:grid;gap:8px;font-weight:900;color:var(--ink)}
 .dig .deeper{padding-left:24px;border-left:4px solid var(--mustard)}
 .dig .deeper2{padding-left:48px;border-left:4px solid var(--red)}
+.dig .deeper3{padding-left:72px;border-left:4px solid var(--teal)}
+.dig .deeper4{padding-left:96px;border-left:4px solid var(--deep)}
+@media (max-width:640px){.dig .deeper3,.dig .deeper4{padding-left:24px}}
 .oneline{font-family:var(--display);font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--ink)}
 .panquote{margin:34px 0;max-width:680px}
 .panquote blockquote{margin:0;font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--ink);line-height:1.1}
@@ -858,18 +863,22 @@ footer p{max-width:720px}
   <p class="helps"><b>Why it helps:</b> Most people don't quit because they're bad on camera. They quit in week three because they forgot why they started. Your why is the real reason you're doing this. The one that keeps you going when it gets hard.</p>
 
   <div class="proof">
-    <span class="hand">Where this comes from</span>
-    <p>This is a short version of the <b>"7 Levels Deep"</b> exercise, made famous by entrepreneur Dean Graziosi. He learned it from coach Joe Stumpf, who used it with his high-level clients. It's the same keep-asking-why idea behind Toyota's famous "5 Whys" for finding the root of a problem. Here, the problem is quitting, and the root is your why.</p>
+    <span class="hand">Why digging deeper works</span>
+    <p>Your first answer is usually logical: more clients, more money, more reach. Logic sounds good, but it loses to fear on a hard day. When a video gets 30 views, "more clients" won't get you back on camera.</p>
+    <p>Each time you ask "why does that matter?", your answer moves from your head to your heart. Keep going and you hit a person or a memory. That's a reason you can <i>feel</i>, and it's what makes you hit record anyway.</p>
+    <p class="src">I learned this from famous entrepreneur Dean Graziosi, who teaches it to his high-level mentorship students. It's the same dig-deep approach business leaders, entrepreneurs and athletes use to stay persistent when the goal gets hard.</p>
   </div>
 
   <h3 class="dothis">Do this</h3>
-  <p class="helps" style="margin-bottom:18px">Answer the first question, then ask "why does that matter?" twice. The real why is usually one or two layers below your first answer. Here's an example:</p>
+  <p class="helps" style="margin-bottom:18px">Answer the first question. Then keep asking "why does that matter?" Stop when your answer names a person or a memory. That's usually three to five levels down, and it's where your real why lives. Here's an example:</p>
   <div class="chain">
     <span class="lab">Example</span>
     <p>I want more clients.</p>
     <p>→ So I stop worrying about money every month.</p>
     <p>→ So I can be fully present with my family.</p>
-    <p class="line">"I'm doing this so my family gets the present version of me."</p>
+    <p>→ Because my dad was never really there when I was growing up. And he died young.</p>
+    <p>→ I don't want my kid to grow up with a parent who's always somewhere else.</p>
+    <p class="line">"I'm doing this so my kid never has the childhood I had."</p>
   </div>
 
   <div class="dig">
@@ -879,7 +888,11 @@ footer p{max-width:720px}
       <textarea class="field" data-save="w2"></textarea></label>
     <label class="deeper2">Step 3. And why does that matter?
       <textarea class="field" data-save="w3"></textarea></label>
-    <label><span class="oneline">Step 4. Say it in one line.</span>
+    <label class="deeper3">Step 4. Keep going. Why does that matter?
+      <textarea class="field" data-save="w3b" placeholder="Is there a person or a memory behind it?"></textarea></label>
+    <label class="deeper4">Step 5. One more. Why does that matter?
+      <textarea class="field" data-save="w3c" placeholder="If this one gives you a lump in your throat, you've found it."></textarea></label>
+    <label><span class="oneline">Step 6. Say it in one line.</span>
       <input class="field" data-save="w4" placeholder="I'm doing this for…"></label>
   </div>
 
